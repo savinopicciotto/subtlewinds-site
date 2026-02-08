@@ -588,6 +588,186 @@ body {
 }
 
 /* ===========================
+   Security Page
+   =========================== */
+
+.page-hero {
+    padding: 140px 0 60px;
+    text-align: center;
+}
+
+.page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+}
+
+.sec-section {
+    padding: 80px 0;
+}
+
+.sec-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 48px;
+}
+
+.sec-dark {
+    background: var(--bg-card);
+}
+
+/* Principles */
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+}
+
+.principle {
+    text-align: center;
+}
+
+.principle-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--accent-glow);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    margin-bottom: 16px;
+}
+
+.principle h3 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.principle p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Architecture Grid */
+.arch-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.arch-item {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+}
+
+.arch-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--accent);
+}
+
+.arch-item ul {
+    list-style: none;
+}
+
+.arch-item li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.arch-item li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--text-muted);
+}
+
+/* Safeguards */
+.safeguards-list {
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.safeguard {
+    display: flex;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.safeguard strong {
+    min-width: 180px;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.safeguard span {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Compliance */
+.compliance-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.compliance-item {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 140px;
+}
+
+.compliance-status {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.compliance-name {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.compliance-item.aligned .compliance-status { color: var(--accent); }
+.compliance-item.partial .compliance-status { color: var(--amber); }
+.compliance-item.roadmap .compliance-status { color: var(--text-muted); }
+
+/* ===========================
    Responsive
    =========================== */
 
@@ -636,6 +816,24 @@ body {
     .proof-grid {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
+    }
+
+    .principles-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+    .arch-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .safeguard {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .safeguard strong {
+        min-width: auto;
     }
 
     .footer-content {

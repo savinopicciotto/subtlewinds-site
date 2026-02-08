@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security & Architecture — Subtle Winds</title>
+    <meta name="description" content="SubtleDoc AI technical architecture, security controls, and compliance overview. Single-tenant, encrypted, SOC 2 aligned.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav scrolled">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Subtle Winds</a>
+            <div class="nav-links">
+                <a href="/#services">Services</a>
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#about">About</a>
+                <a href="/#contact" class="nav-cta">Get in Touch</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <p class="section-label">SubtleDoc AI</p>
+            <h1>Security &amp; Architecture</h1>
+            <p class="hero-sub">Enterprise-grade security with a dedicated deployment for every customer. Your data stays yours.</p>
+        </div>
+    </section>
+
+    <!-- Principles -->
+    <section class="sec-section">
+        <div class="container">
+            <div class="principles-grid">
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Single-Tenant Isolation</h3>
+                    <p>Every customer gets their own dedicated instance. No shared databases, no shared servers, no data commingling.</p>
+                </div>
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <h3>Encrypted Everywhere</h3>
+                    <p>TLS 1.2+ in transit. Encrypted volumes at rest. API keys stored in encrypted environment variables — never in code.</p>
+                </div>
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Your Data, Your Control</h3>
+                    <p>No customer data is used for AI model training. You can delete all data at any time through the admin panel.</p>
+                </div>
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    </div>
+                    <h3>SOC 2 Aligned</h3>
+                    <p>Controls aligned with SOC 2 Type I. Type II certification and ISO 27001 on our roadmap.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="sec-section sec-dark">
+        <div class="container">
+            <p class="section-label">Architecture</p>
+            <h2>How SubtleDoc is built</h2>
+
+            <div class="arch-grid">
+                <div class="arch-item">
+                    <h3>Infrastructure</h3>
+                    <ul>
+                        <li>Hosted on Render PaaS (US-based data centers)</li>
+                        <li>Dedicated instance per customer with independent scaling</li>
+                        <li>99.9% uptime SLA on paid plans</li>
+                        <li>Zero-downtime deployments with auto-restart</li>
+                    </ul>
+                </div>
+                <div class="arch-item">
+                    <h3>Authentication</h3>
+                    <ul>
+                        <li>Google OAuth 2.0 — no passwords to manage</li>
+                        <li>Email whitelist authorization (only approved users access your instance)</li>
+                        <li>Least-privilege OAuth scopes for each service</li>
+                        <li>Development mode password-protected and hidden in production</li>
+                    </ul>
+                </div>
+                <div class="arch-item">
+                    <h3>AI Processing</h3>
+                    <ul>
+                        <li>Anthropic Claude for classification, search, and action extraction</li>
+                        <li>Google Gemini for semantic embeddings</li>
+                        <li>Both services contractually prohibited from training on your data</li>
+                        <li>Input truncation limits prevent data over-exposure</li>
+                    </ul>
+                </div>
+                <div class="arch-item">
+                    <h3>Data Protection</h3>
+                    <ul>
+                        <li>Encrypted persistent storage (EBS volumes)</li>
+                        <li>OAuth tokens stored server-side with strict file permissions</li>
+                        <li>Optional backup to your own Google Drive</li>
+                        <li>Search index fully regenerable in 2-5 minutes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Security -->
+    <section class="sec-section">
+        <div class="container">
+            <p class="section-label">Application Security</p>
+            <h2>Built-in safeguards</h2>
+
+            <div class="safeguards-list">
+                <div class="safeguard">
+                    <strong>Authentication gate</strong>
+                    <span>Every page requires authentication — no unauthenticated access to any data or functionality.</span>
+                </div>
+                <div class="safeguard">
+                    <strong>File validation</strong>
+                    <span>Strict file type checking: PDF, DOC/DOCX, XLS/XLSX, TXT, JPG/PNG, DWG/DXF only.</span>
+                </div>
+                <div class="safeguard">
+                    <strong>Duplicate detection</strong>
+                    <span>Three-layer duplicate check — filename matching, SHA-256 hash comparison, and 85% semantic similarity threshold.</span>
+                </div>
+                <div class="safeguard">
+                    <strong>Secret management</strong>
+                    <span>All API keys and credentials stored as encrypted environment variables. Zero secrets in source code.</span>
+                </div>
+                <div class="safeguard">
+                    <strong>Email ingestion</strong>
+                    <span>Gmail API integration is read-only. Attachments are pulled and classified — no email modification.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance -->
+    <section class="sec-section sec-dark">
+        <div class="container">
+            <p class="section-label">Compliance</p>
+            <h2>Standards alignment</h2>
+
+            <div class="compliance-grid">
+                <div class="compliance-item aligned">
+                    <span class="compliance-status">Aligned</span>
+                    <span class="compliance-name">SOC 2 Type I</span>
+                </div>
+                <div class="compliance-item aligned">
+                    <span class="compliance-status">Aligned</span>
+                    <span class="compliance-name">CCPA</span>
+                </div>
+                <div class="compliance-item partial">
+                    <span class="compliance-status">Partial</span>
+                    <span class="compliance-name">GDPR</span>
+                </div>
+                <div class="compliance-item roadmap">
+                    <span class="compliance-status">Roadmap</span>
+                    <span class="compliance-name">SOC 2 Type II</span>
+                </div>
+                <div class="compliance-item roadmap">
+                    <span class="compliance-status">Roadmap</span>
+                    <span class="compliance-name">ISO 27001</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="sec-section" style="text-align: center;">
+        <div class="container">
+            <h2>Questions about security?</h2>
+            <p class="contact-sub">We're happy to walk through our architecture with your IT team and provide the full technical documentation.</p>
+            <div class="hero-actions" style="justify-content: center; margin-top: 32px;">
+                <a href="mailto:savino@subtlewinds.io" class="btn btn-primary">Contact Us</a>
+                <a href="/" class="btn btn-outline">Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <span class="footer-logo">Subtle Winds</span>
+                <span class="footer-copy">&copy; 2026 Subtle Winds LLC. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            toggle.classList.toggle('active');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                toggle.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
