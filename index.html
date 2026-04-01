@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free AI Readiness Report — Subtle Winds</title>
     <meta name="description" content="Enter your email and website. We analyze your business and email you a free personalized AI Readiness Report with specific time and money estimates.">
+    <meta property="og:site_name" content="Subtle Winds">
+    <meta property="og:title" content="Free AI Readiness Report — Subtle Winds">
+    <meta property="og:description" content="We analyze your business and send you a personalized AI Readiness Report with specific time and money estimates. Completely free.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://subtlewinds.io">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -1165,6 +1170,11 @@
             </div>
             
             <div class="form-group">
+                <label for="report-company">Company Name (optional)</label>
+                <input type="text" id="report-company" name="company_name" placeholder="Your Business Name">
+            </div>
+
+            <div class="form-group">
                 <label for="report-social">Social Media (optional)</label>
                 <input type="text" id="report-social" name="social" placeholder="Instagram, Facebook, or LinkedIn URL">
             </div>
@@ -1360,6 +1370,7 @@
         <a href="/corporate">Corporate Wellness</a>
         <a href="/links">Links</a>
         <a href="/security.html">Security</a>
+        <a href="/privacy.html">Privacy</a>
     </div>
 </footer>
 
@@ -1525,7 +1536,24 @@
 
         userEmail = document.getElementById('report-email').value;
         const url = document.getElementById('report-url').value;
+        const companyName = document.getElementById('report-company').value;
         const social = document.getElementById('report-social').value;
+
+        // Client-side URL validation
+        const blockedDomains = [
+            'subtlewinds.io', 'example.com', 'test.com', 'localhost',
+            'google.com', 'bing.com',
+            'facebook.com', 'instagram.com', 'linkedin.com',
+            'twitter.com', 'x.com', 'youtube.com', 'tiktok.com', 'reddit.com'
+        ];
+        try {
+            const inputDomain = new URL(url.startsWith('http') ? url : 'https://' + url).hostname.replace('www.', '');
+            if (blockedDomains.includes(inputDomain)) {
+                formStatus.textContent = 'Please enter your business website URL, not a social media or test URL.';
+                formStatus.style.color = '#DC143C';
+                return;
+            }
+        } catch (_) { /* let the server validate if URL parsing fails */ }
 
         submitBtn.textContent = 'Starting audit...';
         submitBtn.disabled = true;
@@ -1535,11 +1563,23 @@
             const res = await fetch(AUDIT_API + '/audit/public', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: userEmail, url, social })
+                body: JSON.stringify({ email: userEmail, url, company_name: companyName, social })
             });
 
-            if (!res.ok) throw new Error('Server error');
             const data = await res.json();
+            if (!res.ok) {
+                if (data.recovery) {
+                    // Blocked URL but we captured the email — show friendly message
+                    submitBtn.textContent = 'Generate My Free Report';
+                    submitBtn.disabled = false;
+                    formStatus.innerHTML = 'That URL can\'t be analyzed — but we sent you an email with a link to try again with your business website.';
+                    formStatus.style.color = '#4A4A42';
+                    document.getElementById('report-url').value = '';
+                    document.getElementById('report-url').focus();
+                    return;
+                }
+                throw new Error(data.error || 'Server error');
+            }
 
             // Hide form, show progress
             auditForm.style.display = 'none';
@@ -1553,7 +1593,7 @@
         } catch (err) {
             submitBtn.textContent = 'Generate My Free Report';
             submitBtn.disabled = false;
-            formStatus.textContent = 'Something went wrong. Please try again or email hello@subtlewinds.io';
+            formStatus.textContent = err.message || 'Something went wrong. Please try again or email hello@subtlewinds.io';
             formStatus.style.color = '#DC143C';
         }
     });
