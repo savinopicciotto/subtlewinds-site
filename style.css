@@ -582,6 +582,23 @@ body {
     color: var(--text-muted);
 }
 
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links a {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
 .footer-copy {
     font-size: 0.8rem;
     color: var(--text-muted);
@@ -858,155 +875,233 @@ body {
     }
 }
 
-/* Additional styles for AI Readiness Audit page */
+/* ===========================
+   New Homepage — AI Readiness
+   =========================== */
 
 .hero-note {
-    margin-top: 16px;
-    font-size: 14px;
-    color: var(--text-secondary);
-    letter-spacing: 0.5px;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 0.01em;
 }
 
-.steps-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-top: 48px;
-}
-
+/* step-card aliases .step for new HTML */
 .step-card {
+    text-align: center;
     padding: 32px 24px;
     background: var(--bg-card);
-    border-radius: 12px;
-    text-align: center;
-}
-
-.step-number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background: var(--accent);
-    color: var(--bg-dark);
-    border-radius: 50%;
-    font-weight: 600;
-    font-size: 18px;
-    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
 }
 
 .step-card h3 {
-    margin: 16px 0 12px;
-    font-size: 18px;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
     font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.step-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* What You Get */
+.what-you-get {
+    padding: 100px 0;
+}
+
+.what-you-get h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+}
+
+.section-desc {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: 56px;
+    max-width: 600px;
 }
 
 .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-top: 48px;
+    gap: 24px;
+    margin-bottom: 56px;
 }
 
 .feature-card {
-    padding: 28px;
     background: var(--bg-card);
-    border-radius: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px 28px;
+    transition: border-color 0.2s ease;
+}
+
+.feature-card:hover {
+    border-color: var(--border-accent);
 }
 
 .feature-icon {
-    font-size: 32px;
+    font-size: 1.8rem;
     margin-bottom: 16px;
+    display: block;
 }
 
 .feature-card h3 {
-    font-size: 16px;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
 }
 
 .cta-block {
     text-align: center;
-    padding: 48px 0;
-    margin-top: 48px;
+    padding: 56px 0 0;
 }
 
 .cta-block h3 {
-    font-size: 24px;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
     margin-bottom: 24px;
 }
 
-.report-preview {
+/* FAQ */
+.faq {
+    padding: 100px 0;
     background: var(--bg-card);
-    padding: 32px;
-    border-radius: 12px;
-    margin-top: 32px;
+}
+
+.faq h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 56px;
 }
 
 .faq-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-    margin-top: 48px;
+    gap: 24px;
 }
 
 .faq-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 8px;
     padding: 28px;
-    background: var(--bg-card);
-    border-radius: 12px;
 }
 
 .faq-card h3 {
-    font-size: 16px;
+    font-family: var(--font-display);
+    font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    color: var(--text-primary);
 }
 
+.faq-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+/* Get Report Form */
 .get-report {
-    background: var(--bg-card);
-    padding: 64px 0;
+    padding: 100px 0;
 }
 
 .get-report h2 {
-    text-align: center;
-    margin-bottom: 12px;
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+}
+
+.get-report > .container > p {
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    max-width: 520px;
 }
 
 .audit-form {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 0 16px;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.audit-form .form-group {
-    margin-bottom: 24px;
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
-.audit-form input {
-    width: 100%;
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+.form-group input,
+.form-group textarea {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
     padding: 12px 16px;
-    background: var(--bg-dark);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
     color: var(--text-primary);
-    font-size: 14px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    width: 100%;
 }
 
-.btn-large {
-    width: 100%;
-    padding: 16px 48px;
-    font-size: 16px;
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
 }
 
 .form-note {
-    text-align: center;
-    margin-top: 16px;
-    font-size: 13px;
-    color: var(--text-secondary);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* Contact form (reuses .form-group, .contact already defined) */
+.contact-form {
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 @media (max-width: 768px) {
-    .steps-grid, .features-grid, .faq-grid {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-grid {
         grid-template-columns: 1fr;
     }
 }

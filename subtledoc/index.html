@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free AI Readiness Report — Subtle Winds</title>
-    <meta name="description" content="Enter your email and website. We analyze your business and email you a free personalized AI Readiness Report with specific time and money estimates.">
+    <title>SubtleDoc AI — Document Intelligence for Your Business</title>
+    <meta name="description" content="AI-powered document management and operations setup for businesses. Organize documents, surface deadlines, and answer questions from your files. 6-8 hours saved per week.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -211,19 +211,6 @@
             box-shadow: none;
         }
 
-        nav .nav-links a.book-call {
-            background: var(--charcoal);
-            color: var(--white);
-            padding: 0.5rem 1.2rem;
-            border: 2px solid var(--charcoal);
-            transition: all 0.15s ease;
-            font-weight: 500;
-        }
-
-        nav .nav-links a.book-call:hover {
-            background: var(--crimson);
-        }
-
         .menu-toggle {
             display: none;
             background: none;
@@ -293,7 +280,7 @@
            Hero
            ======================== */
         .hero {
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             position: relative;
@@ -349,88 +336,6 @@
             margin-bottom: 1.5rem;
         }
 
-        .hero-note {
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.06em;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
-        .hero-trust {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            font-style: italic;
-            margin: 1.5rem 0;
-            max-width: 480px;
-            line-height: 1.6;
-        }
-
-        .hero-trust strong {
-            color: var(--crimson);
-            font-weight: 600;
-        }
-
-        /* Hero Form */
-        .hero-form {
-            max-width: 560px;
-            margin: 2rem 0 1.5rem;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .hero-form .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-
-        .hero-form .form-group label {
-            font-family: var(--font-mono);
-            font-size: 0.68rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--gold);
-        }
-
-        .hero-form .form-group input {
-            background: var(--white);
-            border: 2px solid var(--charcoal);
-            padding: 0.85rem 1rem;
-            color: var(--charcoal);
-            font-family: var(--font-body);
-            font-size: 1rem;
-            width: 100%;
-            transition: box-shadow 0.15s ease;
-        }
-
-        .hero-form .form-group input:focus {
-            outline: none;
-            box-shadow: 3px 3px 0 0 var(--crimson);
-        }
-
-        .hero-form .form-group input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .hero-form .btn {
-            width: 100%;
-            text-align: center;
-            margin-top: 0.5rem;
-        }
-
-        .form-status {
-            font-family: var(--font-mono);
-            font-size: 0.68rem;
-            letter-spacing: 0.04em;
-            color: var(--text-muted);
-            text-align: center;
-            margin-top: 0.5rem;
-        }
-
         .hero-stripe {
             position: absolute;
             bottom: 0;
@@ -438,6 +343,141 @@
             right: 0;
             height: 4px;
             background: var(--crimson);
+        }
+
+        /* ========================
+           Services
+           ======================== */
+        .services {
+            background: var(--paper-warm);
+            border-bottom: 2px solid var(--charcoal);
+            text-align: center;
+        }
+
+        .services .section-header p:not(.overline) {
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-header p:not(.overline) {
+            color: var(--text-secondary);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.75rem;
+            border: 2px solid var(--charcoal);
+            box-shadow: var(--shadow-lg);
+            text-align: left;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px var(--charcoal);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--charcoal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--paper);
+        }
+
+        .service-card h3 {
+            margin-bottom: 0.4rem;
+        }
+
+        .service-tagline {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .service-features li {
+            padding: 0.6rem 0;
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-light);
+            line-height: 1.6;
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features li em {
+            color: var(--charcoal);
+            font-style: italic;
+        }
+
+        .service-features li a {
+            color: var(--crimson);
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+        }
+
+        .service-result {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            padding: 1.25rem 0;
+            border-top: 2px solid var(--charcoal);
+        }
+
+        .result-number {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--crimson);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .result-text {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .service-card .btn {
+            width: 100%;
+            text-align: center;
+            margin-top: auto;
         }
 
         /* ========================
@@ -468,7 +508,7 @@
 
         .steps-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             position: relative;
         }
@@ -508,265 +548,140 @@
         }
 
         /* ========================
-           What You Get
+           Social Proof
            ======================== */
-        .what-you-get {
-            background: var(--paper-warm);
+        .proof {
             border-bottom: 2px solid var(--charcoal);
+            padding: clamp(3.5rem, 6vw, 5rem) 0;
+            background: var(--charcoal);
+            color: var(--paper);
         }
 
-        .what-you-get .section-header p:not(.overline) {
-            margin-bottom: 3.5rem;
-        }
-
-        .features-grid {
+        .proof-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
         }
 
-        .feature-card {
-            background: var(--white);
-            padding: 2rem;
-            border: 2px solid var(--charcoal);
-            box-shadow: var(--shadow);
+        .proof-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .feature-icon {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            display: block;
+        .proof-number {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            color: var(--crimson);
+            font-weight: 700;
+            line-height: 1.1;
         }
 
-        .feature-card h3 {
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .feature-card p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            line-height: 1.65;
-            max-width: none;
+        .proof-label {
+            font-size: 0.82rem;
+            color: var(--paper-dark);
+            line-height: 1.5;
+            max-width: 200px;
+            font-family: var(--font-mono);
+            letter-spacing: 0.02em;
         }
 
         /* ========================
-           Services Section
+           About
            ======================== */
-        .services {
-            background: var(--paper-warm);
+        .about {
             border-bottom: 2px solid var(--charcoal);
         }
 
-        .services .section-header p:not(.overline) {
-            margin: 0 auto 3rem;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border: 2px solid var(--charcoal);
-            box-shadow: var(--shadow-lg);
-            text-align: left;
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .service-tagline {
-            font-family: var(--font-mono);
-            font-size: 0.68rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--gold);
+        .about-text p {
             margin-bottom: 1.5rem;
         }
 
-        .service-card p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            max-width: none;
+        .about-text strong {
+            color: var(--charcoal);
+            font-weight: 600;
         }
 
-        .service-card ul {
-            list-style: none;
-            margin: 1.5rem 0;
+        .about-decoration {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 180px;
+            height: 300px;
+            border: 2px solid var(--border-light);
+            opacity: 0.5;
         }
 
-        .service-card li {
-            padding: 0.5rem 0;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            border-bottom: 1px solid var(--border-light);
-            line-height: 1.6;
+        .about-decoration::before {
+            content: 'SW';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--border-light);
+            letter-spacing: 0.05em;
         }
 
-        .service-card li:last-child {
-            border-bottom: none;
-        }
-
-        .service-card .btn {
-            width: 100%;
+        /* ========================
+           Contact
+           ======================== */
+        .contact {
             text-align: center;
-            margin-top: 1rem;
-        }
-
-        /* ========================
-           Footer CTA
-           ======================== */
-        .footer-cta {
-            background: var(--charcoal);
-            color: var(--paper);
-            text-align: center;
-            border-bottom: 2px solid var(--charcoal);
-        }
-
-        .footer-cta h2 {
-            color: var(--paper);
-        }
-
-        .footer-cta p {
-            color: var(--paper-dark);
-            margin: 0 auto 2rem;
-        }
-
-        .footer-cta .btn-primary {
-            background: var(--crimson);
-            color: var(--white);
-            box-shadow: 4px 4px 0px 0px var(--paper-dark);
-        }
-
-        .footer-cta .btn-primary:hover {
-            transform: translate(4px, 4px);
-            box-shadow: none;
-        }
-
-        /* ========================
-           FAQ
-           ======================== */
-        .faq {
-            border-bottom: 2px solid var(--charcoal);
-        }
-
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .faq-card {
-            border: 2px solid var(--charcoal);
-            padding: 2rem;
-            background: var(--white);
-            box-shadow: var(--shadow);
-        }
-
-        .faq-card h3 {
-            font-size: 0.95rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .faq-card p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            line-height: 1.65;
-            max-width: none;
-        }
-
-        /* ========================
-           Get Report Form
-           ======================== */
-        .get-report {
             background: var(--paper-warm);
-            border-bottom: 2px solid var(--charcoal);
-            text-align: center;
+            position: relative;
         }
 
-        .get-report .section-header p:not(.overline) {
+        .contact h2 {
+            margin-bottom: 1rem;
+        }
+
+        .contact .contact-sub {
             margin: 0 auto 3rem;
         }
 
-        .audit-form {
-            max-width: 560px;
-            margin: 0 auto;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
+        .contact-actions {
+            margin-bottom: 3rem;
         }
 
-        .form-group {
+        .contact-details {
             display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
         }
 
-        .form-group label {
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item strong {
+            display: block;
             font-family: var(--font-mono);
             font-size: 0.68rem;
             font-weight: 500;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--gold);
+            margin-bottom: 0.35rem;
         }
 
-        .form-group input {
-            background: var(--white);
-            border: 2px solid var(--charcoal);
-            padding: 0.85rem 1rem;
+        .contact-item a {
+            font-size: 0.95rem;
             color: var(--charcoal);
-            font-family: var(--font-body);
-            font-size: 1rem;
-            width: 100%;
-            transition: box-shadow 0.15s ease;
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.2s;
         }
 
-        .form-group input:focus {
-            outline: none;
-            box-shadow: 3px 3px 0 0 var(--crimson);
-        }
-
-        .form-group input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .form-submit {
-            margin-top: 0.5rem;
-        }
-
-        .form-submit .btn {
-            width: 100%;
-            text-align: center;
-        }
-
-        .form-note {
-            font-family: var(--font-mono);
-            font-size: 0.68rem;
-            letter-spacing: 0.04em;
-            color: var(--text-muted);
-            text-align: center;
-            margin-top: 0.5rem;
-        }
-
-        .form-status {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.04em;
-            color: var(--text-muted);
-            text-align: center;
-            margin-top: 0.75rem;
-            max-width: none;
-            transition: color 0.3s ease;
+        .contact-item a:hover {
+            color: var(--crimson);
+            border-color: var(--crimson);
         }
 
         /* ========================
@@ -811,6 +726,7 @@
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
 
         /* ========================
            Responsive
@@ -820,21 +736,22 @@
                 padding: clamp(3.5rem, 7vw, 5rem) 0;
             }
 
-            .steps-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
             .service-grid {
                 grid-template-columns: 1fr;
             }
 
-            .faq-grid {
-                grid-template-columns: 1fr;
+            .steps-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+
+            .proof-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem 1rem;
+            }
+
+            .contact-details {
+                gap: 2rem;
             }
 
             nav .nav-links {
@@ -869,6 +786,10 @@
                 align-items: flex-start;
             }
 
+            .about-decoration {
+                display: none;
+            }
+
             footer a {
                 display: inline-block;
                 margin: 0.4rem 0.8rem;
@@ -876,8 +797,16 @@
         }
 
         @media (max-width: 480px) {
-            .features-grid {
+            .steps-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .proof-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .service-card {
+                padding: 2rem;
             }
         }
 
@@ -903,11 +832,11 @@
             <span></span><span></span><span></span>
         </button>
         <ul class="nav-links">
-            <li><a href="#how-it-works">How It Works</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="https://calendly.com/savinop/free-consult" target="_blank" class="book-call">Book a Call</a></li>
-            <li><a href="#audit-form" class="nav-cta">Get Your Report</a></li>
+            <li><a href="#how-it-works">Process</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="/security.html">Security</a></li>
+            <li><a href="#contact" class="nav-cta">Request a Demo</a></li>
         </ul>
     </div>
 </nav>
@@ -915,33 +844,77 @@
 <!-- Hero -->
 <section class="hero" id="home">
     <div class="container">
-        <p class="overline reveal">Free AI Readiness Report</p>
-        <h1 class="reveal reveal-delay-1">Discover Your<br>Company's AI<br><em>Readiness</em></h1>
-        <p class="reveal reveal-delay-2">Enter your website URL below. We analyze your business and send you a personalized report showing your AI readiness across 6 categories — plus specific time and money estimates. Completely free.</p>
-        
-        <p class="hero-trust reveal reveal-delay-2"><strong>A real consulting deliverable — free.</strong> This is the kind of report that normally costs $500+. You get it free because you should understand your AI readiness before making any decisions.</p>
-        
-        <form class="hero-form reveal reveal-delay-3" id="audit-form">
-            <div class="form-group">
-                <label for="report-email">Your Email *</label>
-                <input type="email" id="report-email" name="email" placeholder="you@yourbusiness.com" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="report-url">Website URL *</label>
-                <input type="url" id="report-url" name="url" placeholder="https://yourbusiness.com" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="report-social">Social Media (optional)</label>
-                <input type="text" id="report-social" name="social" placeholder="Instagram, Facebook, or LinkedIn URL">
-            </div>
-            
-            <button type="submit" class="btn btn-primary btn-large" id="submit-btn">Generate My Free Report</button>
-            <p class="form-status" id="form-status">✓ No credit card &nbsp;&nbsp; ✓ Takes 2 minutes &nbsp;&nbsp; ✓ Sent to your email</p>
-        </form>
+        <p class="overline reveal">AI Document Intelligence</p>
+        <h1 class="reveal reveal-delay-1">Your documents<br>should work<br><em>for</em> you.</h1>
+        <p class="reveal reveal-delay-2">We build AI-powered systems that organize your documents, surface deadlines, and answer questions from your files — so you can focus on running your business.</p>
+        <div class="hero-actions reveal reveal-delay-3">
+            <a href="#contact" class="btn btn-primary">Request a Demo</a>
+            <a href="https://subtledoc-demo.onrender.com" target="_blank" rel="noopener" class="btn btn-outline">Try It Live</a>
+        </div>
     </div>
     <div class="hero-stripe"></div>
+</section>
+
+<!-- Services -->
+<section id="services" class="services">
+    <div class="container">
+        <div class="section-header reveal">
+            <p class="overline">What We Build</p>
+            <h2>Two ways we help<br>your business</h2>
+        </div>
+
+        <div class="service-grid">
+            <!-- SubtleDoc AI -->
+            <div class="service-card reveal reveal-delay-1">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                    </svg>
+                </div>
+                <h3>SubtleDoc AI</h3>
+                <p class="service-tagline">AI-Powered Document Intelligence</p>
+                <ul class="service-features">
+                    <li>Upload contracts, permits, invoices — AI classifies and organizes everything automatically</li>
+                    <li>Ask questions in plain English: <em>"What permits expire this month?"</em></li>
+                    <li>Action items and deadlines extracted from every document</li>
+                    <li>Email integration pulls attachments automatically</li>
+                    <li>Your data on a dedicated, secure server — never shared (<a href="/security.html">security details</a>)</li>
+                </ul>
+                <div class="service-result">
+                    <span class="result-number">6-8 hrs</span>
+                    <span class="result-text">saved per week on document management</span>
+                </div>
+                <a href="#contact" class="btn btn-primary">Request a Demo</a>
+            </div>
+
+            <!-- AI Operations Setup -->
+            <div class="service-card reveal reveal-delay-2">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                </div>
+                <h3>AI Operations Setup</h3>
+                <p class="service-tagline">Streamline Your Business with AI</p>
+                <ul class="service-features">
+                    <li>We audit your current workflow and identify what AI can automate</li>
+                    <li>Custom AI assistant configured for your business</li>
+                    <li>Calendar, task, and email integrations — everything connected</li>
+                    <li>Hands-on training so your team actually uses it</li>
+                    <li>Ongoing support and optimization available</li>
+                </ul>
+                <div class="service-result">
+                    <span class="result-number">10x</span>
+                    <span class="result-text">more value from AI than generic chatbots</span>
+                </div>
+                <a href="#contact" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- How It Works -->
@@ -949,123 +922,103 @@
     <div class="container">
         <div class="section-header reveal">
             <p class="overline">Simple Process</p>
-            <h2>How it works</h2>
+            <h2>Up and running in<br>weeks, not months</h2>
         </div>
         <div class="steps-grid">
             <div class="step reveal reveal-delay-1">
                 <div class="step-number">1</div>
-                <h3>Enter your URL</h3>
-                <p>Share your website URL and optionally your social media profiles for richer insights.</p>
+                <h3>Discovery Call</h3>
+                <p>We learn how you work today — your documents, your pain points, your goals. 20 minutes, no pressure.</p>
             </div>
             <div class="step reveal reveal-delay-2">
                 <div class="step-number">2</div>
-                <h3>Our system audits your site</h3>
-                <p>We analyze your current tech stack, digital presence, and operations across 6 key categories.</p>
+                <h3>Custom Setup</h3>
+                <p>We build and configure your system with your actual documents. You see real results on your real data before committing.</p>
             </div>
             <div class="step reveal reveal-delay-3">
                 <div class="step-number">3</div>
-                <h3>Get a custom roadmap</h3>
-                <p>Receive a personalized report with specific recommendations to automate workflows and scale your business.</p>
+                <h3>Launch &amp; Train</h3>
+                <p>Your team gets hands-on training. We make sure everyone's comfortable and the system fits your daily workflow.</p>
+            </div>
+            <div class="step reveal reveal-delay-4">
+                <div class="step-number">4</div>
+                <h3>Ongoing Support</h3>
+                <p>We're here as your AI partner — updates, improvements, and support so the system grows with your business.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Services Section -->
-<section id="services" class="services">
+<!-- Social Proof -->
+<section class="proof">
     <div class="container">
-        <div class="section-header reveal">
-            <p class="overline">Next Steps</p>
-            <h2>Ready to implement<br>your roadmap?</h2>
-            <p>After you receive your AI Readiness Report, here's how we can help you turn those recommendations into reality.</p>
-        </div>
-
-        <div class="service-grid">
-            <div class="service-card reveal reveal-delay-1">
-                <h3>Custom AI Solutions</h3>
-                <p class="service-tagline">Build What You Need</p>
-                <p>We design and build AI systems tailored to your specific workflows — not generic chatbots or off-the-shelf tools.</p>
-                <ul>
-                    <li>Document intelligence systems</li>
-                    <li>Workflow automation</li>
-                    <li>Customer experience AI</li>
-                    <li>Internal operations tools</li>
-                </ul>
-                <a href="https://calendly.com/savinop/free-consult" target="_blank" class="btn btn-primary">Discuss Your Project</a>
+        <div class="proof-grid reveal">
+            <div class="proof-stat">
+                <span class="proof-number">26+</span>
+                <span class="proof-label">Documents managed in first deployment</span>
             </div>
-
-            <div class="service-card reveal reveal-delay-2">
-                <h3>Creative Strategy</h3>
-                <p class="service-tagline">Sound + AI Experience Design</p>
-                <p>We blend technical AI implementation with creative strategy — from AI-powered sound experiences to experiential brand activations.</p>
-                <ul>
-                    <li>AI-powered audio experiences</li>
-                    <li>Interactive installations</li>
-                    <li>Brand activation concepts</li>
-                    <li>Technical production</li>
-                </ul>
-                <a href="https://calendly.com/savinop/free-consult" target="_blank" class="btn btn-outline">Explore Creative Work</a>
+            <div class="proof-stat">
+                <span class="proof-number">$2M+</span>
+                <span class="proof-label">Project value managed with SubtleDoc</span>
+            </div>
+            <div class="proof-stat">
+                <span class="proof-number">15+</span>
+                <span class="proof-label">Vendors and partners organized per project</span>
+            </div>
+            <div class="proof-stat">
+                <span class="proof-number">0</span>
+                <span class="proof-label">Missed deadlines after implementation</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" class="faq">
-    <div class="container">
-        <div class="section-header reveal">
-            <p class="overline">Common Questions</p>
-            <h2>Questions?</h2>
+<!-- About -->
+<section id="about" class="about">
+    <div class="container" style="position: relative;">
+        <div class="about-text reveal">
+            <p class="overline">About Subtle Winds</p>
+            <h2>Built for how you<br>actually work.</h2>
+            <p>Subtle Winds is an AI consulting firm founded by <strong>Savino Picciotto</strong>, a software engineer who's spent years at the intersection of AI and real-world business operations.</p>
+            <p>We built SubtleDoc because we saw businesses drowning in paperwork — contracts in email, permits on desktops, invoices in filing cabinets. The tools that existed were either too expensive, too complicated, or not smart enough.</p>
+            <p>Our approach is different: we build AI systems that work the way you already work, not the other way around. Every deployment is customized to your business, your documents, and your team.</p>
         </div>
-
-        <div class="faq-grid">
-            <div class="faq-card reveal reveal-delay-1">
-                <h3>Is this really free?</h3>
-                <p>Yes. We believe businesses should understand their AI readiness before making any decisions. No credit card, no catch.</p>
-            </div>
-
-            <div class="faq-card reveal reveal-delay-2">
-                <h3>What if my website is small or outdated?</h3>
-                <p>That's exactly what we measure. The audit is designed for businesses at any stage — from "barely online" to "tech-forward."</p>
-            </div>
-
-            <div class="faq-card reveal reveal-delay-1">
-                <h3>How long does the audit take?</h3>
-                <p>About 2 minutes for you (just enter your URL). Our AI takes about 2 minutes to analyze and generate your report.</p>
-            </div>
-
-            <div class="faq-card reveal reveal-delay-2">
-                <h3>What happens after I get my report?</h3>
-                <p>That's entirely up to you. Use it to talk to your team, implement recommendations yourself, or reach out if you want help.</p>
-            </div>
-
-            <div class="faq-card reveal reveal-delay-1">
-                <h3>Do you sell my data?</h3>
-                <p>No. Your audit results are for you only. We don't share, sell, or use your data for anything else.</p>
-            </div>
-
-            <div class="faq-card reveal reveal-delay-2">
-                <h3>What if I want professional help?</h3>
-                <p>If your report shows significant opportunity, we offer custom AI implementations on retainer. But that's optional — the audit stands alone.</p>
-            </div>
-        </div>
+        <div class="about-decoration" aria-hidden="true"></div>
     </div>
 </section>
 
-<!-- Footer CTA -->
-<section class="footer-cta">
+<!-- Contact -->
+<section id="contact" class="contact">
     <div class="container reveal">
-        <p class="overline">Ready to Talk?</p>
-        <h2>Already know what<br>you need built?</h2>
-        <p>Let's skip the audit and jump straight into discussing your project.</p>
-        <a href="https://calendly.com/savinop/free-consult" target="_blank" class="btn btn-primary btn-large">Book a Consultation</a>
+        <p class="overline">Get Started</p>
+        <h2>See what AI can do<br>for your business</h2>
+        <p class="contact-sub">Book a free 20-minute consultation. We'll learn about your workflow and show you exactly how SubtleDoc or our AI Operations service can help — no pressure, no commitment.</p>
+
+        <div class="contact-actions">
+            <a href="mailto:savino@subtlewinds.io" class="btn btn-primary btn-large">Email Us: savino@subtlewinds.io</a>
+        </div>
+
+        <div class="contact-details">
+            <div class="contact-item">
+                <strong>Email</strong>
+                <a href="mailto:savino@subtlewinds.io">savino@subtlewinds.io</a>
+            </div>
+            <div class="contact-item">
+                <strong>Live Demo</strong>
+                <a href="https://subtledoc-demo.onrender.com" target="_blank" rel="noopener">Try SubtleDoc AI</a>
+            </div>
+            <div class="contact-item">
+                <strong>Free Audit</strong>
+                <a href="/">Get Your AI Readiness Report</a>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- Footer -->
 <footer>
     <div class="container">
-        <a href="/">Subtle Winds</a>
+        <a href="/">Home</a>
         <a href="/practice">Practice</a>
         <a href="/work">Portfolio</a>
         <a href="/corporate">Corporate Wellness</a>
@@ -1074,68 +1027,19 @@
     </div>
 </footer>
 
-<!-- Scripts -->
 <script>
-    // Nav scroll effect
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
         nav.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    // Mobile menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-    });
-
-    // Close mobile menu on link click
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('open');
-        });
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
     });
 
-    // Audit form submission
-    const auditForm = document.getElementById('audit-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const formStatus = document.getElementById('form-status');
-
-    auditForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const email = document.getElementById('report-email').value;
-        const url = document.getElementById('report-url').value;
-        const social = document.getElementById('report-social').value;
-
-        submitBtn.textContent = 'Analyzing...';
-        submitBtn.disabled = true;
-        formStatus.textContent = 'Running your audit — this takes about 2 minutes.';
-
-        try {
-            const res = await fetch('https://subtlewinds-audit.onrender.com/audit/public', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, url, social })
-            });
-
-            if (!res.ok) throw new Error('Server error');
-
-            submitBtn.textContent = 'Report Sent!';
-            submitBtn.style.background = '#1A1A1A';
-            auditForm.querySelectorAll('input').forEach(el => el.disabled = true);
-            formStatus.textContent = 'Your report is on its way — check your inbox in about 2 minutes.';
-            formStatus.style.color = '#C5A945';
-
-        } catch (err) {
-            submitBtn.textContent = 'Generate My Report';
-            submitBtn.disabled = false;
-            formStatus.textContent = 'Something went wrong. Please try again or email hello@subtlewinds.io';
-            formStatus.style.color = '#DC143C';
-        }
-    });
-
-    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1144,10 +1048,7 @@
                 observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -40px 0px'
-    });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(el => observer.observe(el));
 </script>
 

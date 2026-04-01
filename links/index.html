@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savino Picciotto</title>
+    <meta name="description" content="AI systems builder, meditation teacher, event producer. Brooklyn, NY.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <style>
+        /* ========================
+           Tokens (from refined grunge design system)
+           ======================== */
+        :root {
+            --paper: #F0EAD6;
+            --paper-dark: #E5DCC6;
+            --paper-warm: #EBE3CE;
+            --charcoal: #1A1A1A;
+            --charcoal-light: #2A2A2A;
+            --crimson: #DC143C;
+            --crimson-dark: #B01030;
+            --gold: #C5A945;
+            --gold-muted: rgba(197, 169, 69, 0.15);
+            --white: #FFFFFF;
+            --text-secondary: #4A4A42;
+            --text-muted: #7A7A6E;
+            --border: #1A1A1A;
+            --border-light: rgba(26, 26, 26, 0.12);
+            --shadow: 4px 4px 0px 0px #1A1A1A;
+            --shadow-lg: 6px 6px 0px 0px #1A1A1A;
+            --font-display: 'Oswald', 'Impact', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'Roboto Mono', 'Courier New', monospace;
+        }
+
+        /* ========================
+           Reset & Base
+           ======================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--paper);
+            color: var(--charcoal);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+            line-height: 1.65;
+        }
+
+        /* Global grain texture overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+
+        /* Subtle halftone dot pattern background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.035;
+            background-image: radial-gradient(circle, var(--charcoal) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* ========================
+           Animation
+           ======================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========================
+           Hub Layout
+           ======================== */
+        .hub {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            max-width: 500px;
+            width: 100%;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* ========================
+           Name Heading
+           ======================== */
+        .name {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 7vw, 3.2rem);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            line-height: 1.1;
+            color: var(--charcoal);
+            margin-bottom: 0.75rem;
+        }
+
+        /* ========================
+           Tagline
+           ======================== */
+        .tagline {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 2.5rem;
+            max-width: 380px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ========================
+           Link Cards
+           ======================== */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .link-card {
+            display: block;
+            padding: 1.15rem 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--charcoal);
+            box-shadow: var(--shadow);
+            color: var(--charcoal);
+            text-decoration: none;
+            text-align: left;
+            transition: all 0.15s ease;
+        }
+
+        .link-card:hover {
+            transform: translate(4px, 4px);
+            box-shadow: none;
+        }
+
+        .link-card .card-title {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            margin-bottom: 0.25rem;
+        }
+
+        .link-card .card-desc {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        /* ========================
+           Divider
+           ======================== */
+        .divider {
+            width: 40px;
+            height: 2px;
+            background: var(--charcoal);
+            margin: 0 auto 2rem;
+        }
+
+        /* ========================
+           Social Links
+           ======================== */
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social a {
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.2s ease;
+        }
+
+        .social a:hover {
+            color: var(--charcoal);
+        }
+
+        /* ========================
+           Email
+           ======================== */
+        .email {
+            display: block;
+            color: var(--crimson);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .email:hover {
+            color: var(--crimson-dark);
+        }
+
+        /* ========================
+           Footer Note
+           ======================== */
+        .footer-note {
+            margin-top: 3rem;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* ========================
+           Responsive
+           ======================== */
+        @media (max-width: 480px) {
+            .social {
+                gap: 1.25rem;
+            }
+
+            .link-card {
+                padding: 1rem 1.25rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hub">
+    <h1 class="name">Savino Picciotto</h1>
+    <p class="tagline">AI systems builder, meditation teacher, event producer. Brooklyn, NY.</p>
+
+    <div class="links">
+        <a href="/practice" class="link-card">
+            <span class="card-title">Contemplative Practice</span>
+            <span class="card-desc">Meditation, sound practice, and guided inner work</span>
+        </a>
+        <a href="/work" class="link-card">
+            <span class="card-title">AI Consulting &amp; Portfolio</span>
+            <span class="card-desc">Production AI systems — discovery to deployment</span>
+        </a>
+        <a href="/" class="link-card">
+            <span class="card-title">Subtle Winds</span>
+            <span class="card-desc">AI solutions for business</span>
+        </a>
+        <a href="/corporate" class="link-card">
+            <span class="card-title">Corporate Wellness</span>
+            <span class="card-desc">Sound meditation for teams &amp; organizations</span>
+        </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="social">
+        <a href="https://www.instagram.com/material_witness_" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://linkedin.com/in/savino-picciotto" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/savinopicciotto" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <a href="mailto:savino@subtlewinds.io" class="email">savino@subtlewinds.io</a>
+
+    <p class="footer-note">&copy; 2026 Subtle Winds LLC</p>
+</div>
+
+</body>
+</html>

@@ -4,22 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savino Picciotto — Contemplative Practice</title>
+    <meta name="description" content="Meditation, sound practice, and guided inner work. Real depth, grounded language, no fluff. Brooklyn, NY.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <style>
+        /* ========================
+           Tokens — Refined Grunge (Practice variant)
+           ======================== */
         :root {
-            --stone: #2c2c2c;
-            --warm-black: #1a1a1a;
-            --sand: #c4b5a0;
-            --sand-light: #e8ddd0;
-            --cream: #f5f0ea;
-            --earth: #8b7355;
-            --moss: #6b7c5e;
-            --white: #fafaf8;
-            --text: #3a3a3a;
-            --text-light: #6b6b6b;
+            --paper: #F0EAD6;
+            --paper-dark: #E5DCC6;
+            --paper-warm: #EBE3CE;
+            --charcoal: #1A1A1A;
+            --charcoal-light: #2A2A2A;
+            --crimson: #DC143C;
+            --crimson-dark: #B01030;
+            --gold: #C5A945;
+            --gold-muted: rgba(197, 169, 69, 0.15);
+            --white: #FFFFFF;
+            --text-secondary: #4A4A42;
+            --text-muted: #7A7A6E;
+            --border: #1A1A1A;
+            --border-light: rgba(26, 26, 26, 0.12);
+            --shadow: 4px 4px 0px 0px #1A1A1A;
+            --shadow-lg: 6px 6px 0px 0px #1A1A1A;
+            --font-display: 'Oswald', 'Impact', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'Roboto Mono', 'Courier New', monospace;
         }
 
-        * {
+        /* ========================
+           Reset & Base
+           ======================== */
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -27,56 +46,53 @@
 
         html {
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            color: var(--text);
-            background: var(--white);
-            line-height: 1.7;
+            font-family: var(--font-body);
+            background: var(--paper);
+            color: var(--charcoal);
+            line-height: 1.65;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        /* Typography */
-        h1, h2, h3, h4 {
-            font-weight: 400;
-            letter-spacing: 0.02em;
+        /* Global grain texture */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
         }
 
-        h1 {
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            line-height: 1.2;
+        :focus-visible {
+            outline: 2px solid var(--crimson);
+            outline-offset: 4px;
         }
 
-        h2 {
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
-            line-height: 1.3;
-            margin-bottom: 1.5rem;
-        }
-
-        h3 {
-            font-size: 1.15rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--earth);
-        }
-
-        p {
-            font-size: 1.05rem;
-            max-width: 640px;
-        }
-
-        a {
-            color: var(--earth);
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--crimson);
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 500;
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s;
+            z-index: 200;
+            transition: top 0.2s;
         }
+        .skip-link:focus { top: 0; }
 
-        a:hover {
-            border-bottom-color: var(--earth);
-        }
-
-        /* Layout */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -84,20 +100,74 @@
         }
 
         section {
-            padding: 6rem 0;
+            padding: clamp(5rem, 8vw, 8rem) 0;
+            position: relative;
         }
 
-        /* Navigation */
+        /* ========================
+           Typography
+           ======================== */
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.05rem;
+            max-width: 620px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .overline {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.25rem;
+            max-width: none;
+        }
+
+        /* ========================
+           Navigation
+           ======================== */
         nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 100;
-            background: rgba(26, 26, 26, 0.95);
-            backdrop-filter: blur(8px);
-            padding: 1rem 0;
-            transition: all 0.3s;
+            padding: 1.1rem 0;
+            background: rgba(240, 234, 214, 0.7);
+            backdrop-filter: blur(16px) saturate(1.4);
+            -webkit-backdrop-filter: blur(16px) saturate(1.4);
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(240, 234, 214, 0.95);
+            padding: 0.8rem 0;
+            border-bottom: 2px solid var(--charcoal);
+            box-shadow: 0 2px 0 0 var(--charcoal);
         }
 
         nav .container {
@@ -107,30 +177,52 @@
         }
 
         nav .brand {
-            color: var(--sand-light);
-            font-size: 0.95rem;
-            letter-spacing: 0.12em;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            letter-spacing: 0.06em;
             text-transform: uppercase;
+        }
+
+        nav .brand a {
+            color: inherit;
+            text-decoration: none;
         }
 
         nav .nav-links {
             display: flex;
             gap: 2rem;
             list-style: none;
+            align-items: center;
         }
 
         nav .nav-links a {
-            color: var(--sand);
-            font-size: 0.85rem;
-            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
             text-transform: uppercase;
-            border-bottom: none;
-            opacity: 0.8;
-            transition: opacity 0.3s;
+            text-decoration: none;
+            transition: color 0.2s;
         }
 
-        nav .nav-links a:hover {
-            opacity: 1;
+        nav .nav-links a:hover { color: var(--charcoal); }
+
+        nav .nav-links a.nav-cta {
+            background: var(--crimson);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border: 2px solid var(--charcoal);
+            box-shadow: 2px 2px 0px 0px var(--charcoal);
+            transition: all 0.15s ease;
+            font-weight: 500;
+        }
+
+        nav .nav-links a.nav-cta:hover {
+            transform: translate(2px, 2px);
+            box-shadow: none;
         }
 
         .menu-toggle {
@@ -139,232 +231,494 @@
             border: none;
             cursor: pointer;
             padding: 0.5rem;
+            z-index: 101;
         }
 
         .menu-toggle span {
             display: block;
             width: 24px;
             height: 2px;
-            background: var(--sand);
+            background: var(--charcoal);
             margin: 5px 0;
             transition: all 0.3s;
         }
 
-        /* Hero */
+        /* ========================
+           Buttons
+           ======================== */
+        .btn {
+            display: inline-block;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.9rem 2.2rem;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid var(--charcoal);
+            transition: all 0.15s ease;
+        }
+
+        .btn-primary {
+            background: var(--crimson);
+            color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translate(4px, 4px);
+            box-shadow: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--charcoal);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline:hover {
+            transform: translate(4px, 4px);
+            box-shadow: none;
+            background: var(--charcoal);
+            color: var(--paper);
+        }
+
+        /* ========================
+           Hero — big type, textured
+           ======================== */
         .hero {
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             align-items: center;
-            background: var(--warm-black);
-            color: var(--cream);
+            justify-content: center;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
+        /* Halftone dot pattern */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(107, 124, 94, 0.15) 0%, transparent 60%),
-                        radial-gradient(ellipse at 70% 80%, rgba(139, 115, 85, 0.1) 0%, transparent 50%);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            opacity: 0.04;
+            background-image: radial-gradient(circle, var(--charcoal) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
         }
 
-        .hero .container {
+        .hero-stripe {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--crimson);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            margin-bottom: 2rem;
+            line-height: 1.0;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--crimson);
+            font-family: 'Georgia', serif;
+            text-transform: lowercase;
+            font-weight: 400;
+            font-size: 0.95em;
+        }
+
+        .hero-sub {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.4;
+        }
+
+        .scroll-hint .line {
+            width: 2px;
+            height: 40px;
+            background: var(--charcoal);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; transform: scaleY(1); }
+            50% { opacity: 0.8; transform: scaleY(1.15); }
+        }
+
+        /* ========================
+           Statement — editorial spread
+           ======================== */
+        .statement {
+            padding: clamp(6rem, 10vw, 10rem) 0;
+            border-bottom: 2px solid var(--charcoal);
+        }
+
+        .statement-layout {
+            display: grid;
+            grid-template-columns: 0.45fr 0.55fr;
+            gap: clamp(3rem, 6vw, 5rem);
+            align-items: center;
+        }
+
+        .statement-photo {
+            position: relative;
+            border: 2px solid var(--charcoal);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .statement-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: saturate(0.85) contrast(1.05);
+        }
+
+        .statement-text p {
+            font-size: clamp(1.05rem, 1.8vw, 1.15rem);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+        }
+
+        .statement-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* ========================
+           About — asymmetric editorial
+           ======================== */
+        .about {
+            padding: clamp(6rem, 10vw, 10rem) 0;
+            background: var(--paper-warm);
+            border-bottom: 2px solid var(--charcoal);
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: clamp(3rem, 6vw, 6rem);
+            align-items: start;
+        }
+
+        .about-text h2 {
+            margin-bottom: 2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .about-text em {
+            color: var(--charcoal);
+            font-style: italic;
+        }
+
+        .about-photo {
+            position: relative;
+            border: 2px solid var(--charcoal);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-photo img {
+            width: 100%;
+            display: block;
+            filter: saturate(0.85) contrast(1.05);
+        }
+
+        .about-photo .photo-caption {
+            padding: 0.75rem 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+            border-top: 2px solid var(--charcoal);
+            background: var(--paper);
+        }
+
+        /* ========================
+           Pull Quote
+           ======================== */
+        .pull-quote {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 2rem;
+            position: relative;
+            background: var(--charcoal);
+            border-bottom: 2px solid var(--charcoal);
+        }
+
+        .pull-quote blockquote {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 6vw, 4.5rem);
+            font-weight: 700;
+            color: var(--paper);
+            text-align: center;
+            max-width: 800px;
+            line-height: 1.15;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+
+        .pull-quote blockquote em {
+            font-style: italic;
+            color: var(--crimson);
+            font-family: 'Georgia', serif;
+            text-transform: lowercase;
+            font-weight: 400;
+        }
+
+        /* Red rule above quote */
+        .pull-quote-rule {
+            width: 60px;
+            height: 4px;
+            background: var(--crimson);
+            margin: 0 auto 2.5rem;
+        }
+
+        .pull-quote .inner {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        /* ========================
+           Credentials
+           ======================== */
+        .credentials {
+            padding: clamp(5rem, 8vw, 8rem) 0;
+            border-bottom: 2px solid var(--charcoal);
+        }
+
+        .credentials .container {
+            max-width: 900px;
+        }
+
+        .credentials-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 clamp(3rem, 5vw, 5rem);
+        }
+
+        .credentials li {
+            list-style: none;
+            padding: 0.75rem 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-light);
+            line-height: 1.55;
+        }
+
+        .credentials .hl {
+            color: var(--crimson);
+            font-weight: 600;
+        }
+
+        /* ========================
+           Photo sections
+           ======================== */
+        /* ========================
+           Epigraph (Csikszentmihalyi quote)
+           ======================== */
+        .epigraph {
+            padding: clamp(4rem, 7vw, 6rem) 2rem;
+            text-align: center;
+            border-bottom: 2px solid var(--charcoal);
+            background: var(--paper-warm);
+            position: relative;
+        }
+
+        .epigraph::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            opacity: 0.03;
+            background-image: radial-gradient(circle, var(--charcoal) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+        }
+
+        .epigraph blockquote {
+            font-family: var(--font-body);
+            font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+            font-style: italic;
+            color: var(--text-secondary);
+            max-width: 580px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.85;
             position: relative;
             z-index: 1;
         }
 
-        .hero-eyebrow {
-            font-size: 0.85rem;
-            letter-spacing: 0.15em;
+        .epigraph cite {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-style: normal;
+            color: var(--text-muted);
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            color: var(--sand);
-            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .hero h1 {
-            margin-bottom: 1.5rem;
-            color: var(--cream);
+        .photo-landscape {
+            width: 100%;
+            height: clamp(280px, 40vw, 480px);
+            overflow: hidden;
+            position: relative;
+            border-bottom: 2px solid var(--charcoal);
         }
 
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--sand-light);
-            opacity: 0.85;
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
+        .photo-landscape img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: saturate(0.8) contrast(1.08);
         }
 
-        .btn {
-            display: inline-block;
-            padding: 0.9rem 2.2rem;
-            font-size: 0.85rem;
-            letter-spacing: 0.1em;
+        .photo-portrait {
+            padding: clamp(4rem, 8vw, 7rem) 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 2px solid var(--charcoal);
+        }
+
+        .photo-portrait-frame {
+            border: 2px solid var(--charcoal);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .photo-portrait img {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: saturate(0.85) contrast(1.05);
+        }
+
+        .photo-portrait .photo-caption {
+            margin-top: 1.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            border: 1px solid var(--sand);
-            color: var(--sand-light);
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: inherit;
         }
 
-        .btn:hover {
-            background: var(--sand);
-            color: var(--warm-black);
-            border-bottom-color: var(--sand);
-        }
-
-        .btn-primary {
-            background: var(--earth);
-            border-color: var(--earth);
-            color: var(--cream);
-        }
-
-        .btn-primary:hover {
-            background: #9d8463;
-            border-color: #9d8463;
-        }
-
-        /* Divider */
-        .divider {
-            width: 60px;
-            height: 1px;
-            background: var(--sand);
-            margin: 0 auto 2rem;
-        }
-
-        /* About */
-        .about {
-            background: var(--white);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .about-intro p {
-            margin-bottom: 1.5rem;
-            color: var(--text);
-        }
-
-        .credentials {
-            padding: 2.5rem;
-            background: var(--cream);
-            border-left: 3px solid var(--earth);
-        }
-
-        .credentials h3 {
-            margin-bottom: 1.2rem;
-            font-size: 0.9rem;
-        }
-
-        .credentials ul {
-            list-style: none;
-        }
-
-        .credentials li {
-            padding: 0.6rem 0;
-            font-size: 0.95rem;
-            color: var(--text);
-            border-bottom: 1px solid rgba(139, 115, 85, 0.15);
-        }
-
-        .credentials li:last-child {
-            border-bottom: none;
-        }
-
-        .credentials .years {
-            font-weight: 700;
-            color: var(--earth);
-        }
-
-        /* Approach */
+        /* ========================
+           Approach
+           ======================== */
         .approach {
-            background: var(--warm-black);
-            color: var(--cream);
-            text-align: center;
+            padding: clamp(6rem, 10vw, 10rem) 0;
+            border-bottom: 2px solid var(--charcoal);
         }
 
-        .approach h2 {
-            color: var(--cream);
+        .approach-intro {
+            max-width: 580px;
+            margin-bottom: 4rem;
         }
 
-        .approach p {
-            margin: 0 auto 1.5rem;
-            color: var(--sand-light);
-            opacity: 0.85;
+        .approach-intro p {
+            font-size: 1.02rem;
+            line-height: 1.75;
         }
 
-        .approach-pillars {
+        .approach-items {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-            margin-top: 3rem;
-            text-align: center;
+            gap: 0;
         }
 
-        .pillar h4 {
-            font-size: 1rem;
-            color: var(--sand);
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.05em;
+        .approach-item {
+            padding: 0 2.5rem;
+            border-left: 2px solid var(--border-light);
         }
 
-        .pillar p {
+        .approach-item:first-child {
+            padding-left: 0;
+            border-left: none;
+        }
+
+        .approach-item h3 {
+            margin-bottom: 0.75rem;
+        }
+
+        .approach-item p {
             font-size: 0.92rem;
-            color: var(--sand-light);
-            opacity: 0.7;
-            margin: 0 auto;
+            color: var(--text-muted);
+            line-height: 1.65;
+            max-width: 280px;
         }
 
-        /* Sessions */
+        /* ========================
+           Sessions
+           ======================== */
         .sessions {
-            background: var(--cream);
-            text-align: center;
+            padding: clamp(6rem, 10vw, 10rem) 0;
+            background: var(--paper-warm);
+            border-bottom: 2px solid var(--charcoal);
         }
 
-        .sessions h2 {
-            margin-bottom: 0.5rem;
+        .sessions .container {
+            max-width: 720px;
+            text-align: center;
         }
 
         .sessions > .container > p {
-            margin: 0 auto 2.5rem;
-            color: var(--text-light);
+            margin: 0 auto 3.5rem;
+            max-width: 560px;
         }
 
         .session-card {
-            max-width: 680px;
-            margin: 0 auto;
             background: var(--white);
-            padding: 3rem;
-            border: 1px solid rgba(139, 115, 85, 0.12);
+            padding: clamp(2.5rem, 5vw, 3.5rem);
+            border: 2px solid var(--charcoal);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
         }
 
         .session-card h3 {
-            font-size: 0.8rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .session-card h4 {
-            font-size: 1.4rem;
-            color: var(--text);
+            font-size: 1.15rem;
             margin-bottom: 1rem;
-            text-transform: none;
-            letter-spacing: normal;
-            font-weight: 400;
         }
 
-        .session-card p {
-            font-size: 1rem;
-            color: var(--text-light);
-            margin: 0 auto 1.5rem;
+        .session-card > p {
+            font-size: 0.95rem;
+            margin: 0 auto 2rem;
+            max-width: 500px;
             line-height: 1.7;
         }
 
@@ -372,232 +726,695 @@
             display: flex;
             justify-content: center;
             gap: 2.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             flex-wrap: wrap;
         }
 
-        .session-detail {
-            text-align: center;
-        }
-
         .session-detail .label {
-            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 500;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--earth);
+            color: var(--gold);
             display: block;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.35rem;
         }
 
         .session-detail .value {
-            font-size: 1rem;
-            color: var(--text);
+            font-size: 0.92rem;
+            color: var(--charcoal);
+            font-weight: 500;
         }
 
         .notify-cta {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(139, 115, 85, 0.12);
+            padding-top: 2rem;
+            border-top: 2px solid var(--charcoal);
         }
 
         .notify-cta p {
-            font-size: 0.92rem;
-            color: var(--text-light);
-            margin: 0 auto 1rem;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin: 0 auto 1.25rem;
+            max-width: 380px;
         }
 
-        /* Offerings */
+        /* ========================
+           Offerings
+           ======================== */
         .offerings {
-            background: var(--cream);
+            padding: clamp(6rem, 10vw, 10rem) 0;
+            border-bottom: 2px solid var(--charcoal);
         }
 
-        .offerings h2 {
+        .offerings-header {
             text-align: center;
-            margin-bottom: 0.5rem;
+            margin-bottom: 3.5rem;
         }
 
-        .offerings > .container > p {
-            text-align: center;
-            margin: 0 auto 3rem;
-            color: var(--text-light);
+        .offerings-header p {
+            font-size: 1rem;
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.75;
         }
 
         .offerings-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .offering-card {
-            background: var(--white);
             padding: 2.5rem;
-            border: 1px solid rgba(139, 115, 85, 0.12);
-            transition: border-color 0.3s, box-shadow 0.3s;
+            background: var(--white);
+            border: 2px solid var(--charcoal);
+            box-shadow: var(--shadow);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
         .offering-card:hover {
-            border-color: var(--earth);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px var(--charcoal);
         }
 
-        .offering-card h3 {
-            font-size: 0.8rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .offering-card h4 {
-            font-size: 1.2rem;
-            color: var(--text);
-            margin-bottom: 0.8rem;
-            text-transform: none;
-            letter-spacing: normal;
-        }
-
-        .offering-card p {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        .offering-card .format {
-            display: inline-block;
-            margin-top: 1rem;
-            font-size: 0.8rem;
-            color: var(--earth);
-            letter-spacing: 0.05em;
+        .offering-card .tag {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
+            color: var(--white);
+            background: var(--crimson);
+            padding: 0.2rem 0.6rem;
+            border: 1px solid var(--charcoal);
+            display: inline-block;
+            margin-bottom: 0.75rem;
         }
 
-        /* Traditions */
-        .traditions {
-            background: var(--white);
-            text-align: center;
-        }
-
-        .traditions h2 {
+        .offering-card .cat {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
             margin-bottom: 0.5rem;
         }
 
-        .traditions > .container > p {
-            margin: 0 auto 3rem;
-            color: var(--text-light);
+        .offering-card h3 {
+            margin-bottom: 0.75rem;
+        }
+
+        .offering-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        .offering-card .price {
+            display: block;
+            margin-top: 1.25rem;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            text-transform: uppercase;
+        }
+
+        .offering-card .meta {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+            display: block;
+        }
+
+        .offering-card .meta a {
+            color: var(--crimson);
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+        }
+        .offering-card .meta a:hover { color: var(--crimson-dark); }
+
+        .offering-card .format-tag {
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .offering-card .cta-link {
+            display: inline-block;
+            margin-top: 1.25rem;
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            text-decoration: none;
+            border-bottom: 2px solid var(--crimson);
+            padding-bottom: 0.15rem;
+            transition: color 0.2s;
+        }
+        .offering-card .cta-link:hover { color: var(--crimson-dark); }
+
+        /* ========================
+           Traditions
+           ======================== */
+        .traditions {
+            padding: clamp(6rem, 10vw, 10rem) 0;
+            background: var(--paper-warm);
+            border-bottom: 2px solid var(--charcoal);
+        }
+
+        .traditions .container {
+            max-width: 1000px;
+        }
+
+        .traditions-intro {
+            max-width: 540px;
+            margin-bottom: 3.5rem;
+        }
+
+        .traditions-intro p {
+            font-size: 1rem;
+            line-height: 1.75;
         }
 
         .traditions-list {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 clamp(3rem, 5vw, 5rem);
         }
 
-        .tradition {
-            padding: 1.5rem;
+        .tradition-item {
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border-light);
         }
 
-        .tradition h4 {
+        .tradition-item h3 {
             font-size: 1rem;
-            color: var(--text);
-            margin-bottom: 0.4rem;
-            text-transform: none;
-            letter-spacing: normal;
+            margin-bottom: 0.35rem;
         }
 
-        .tradition p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin: 0 auto;
+        .tradition-item p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
-        /* Contact */
+        /* ========================
+           Contact
+           ======================== */
         .contact {
-            background: var(--warm-black);
-            color: var(--cream);
+            padding: clamp(6rem, 10vw, 10rem) 0;
             text-align: center;
-            padding: 5rem 0;
         }
 
         .contact h2 {
-            color: var(--cream);
             margin-bottom: 1rem;
         }
 
-        .contact p {
-            margin: 0 auto 2rem;
-            color: var(--sand-light);
-            opacity: 0.85;
+        .contact > .container > p {
+            max-width: 420px;
+            margin: 0 auto 3rem;
         }
 
         .contact .btn {
-            margin: 0 0.5rem;
+            margin: 0 0.5rem 0.75rem;
         }
 
-        /* Footer */
+        /* ========================
+           Footer
+           ======================== */
         footer {
-            background: var(--warm-black);
-            border-top: 1px solid rgba(196, 181, 160, 0.15);
+            border-top: 2px solid var(--charcoal);
             padding: 2rem 0;
             text-align: center;
-            color: var(--sand);
-            font-size: 0.8rem;
-            letter-spacing: 0.05em;
-            opacity: 0.6;
+            background: var(--charcoal);
         }
 
-        /* Responsive */
+        footer a {
+            color: var(--paper-dark);
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover { color: var(--crimson); }
+
+        /* ========================
+           Scroll Reveal
+           ======================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ========================
+           Responsive
+           ======================== */
         @media (max-width: 768px) {
             section {
-                padding: 4rem 0;
+                padding: clamp(3.5rem, 7vw, 5rem) 0;
             }
 
-            .about-grid {
+            .hero h1 { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+
+            .statement-layout {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .statement-photo {
+                max-width: 360px;
+                margin: 0 auto;
+            }
+            .statement-text { text-align: center; }
+            .statement-actions {
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-layout {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
             }
 
-            .approach-pillars {
+            .approach-items {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 0;
+            }
+            .approach-item {
+                padding: 1.5rem 0 1.5rem 1.5rem;
+                border-left: 2px solid var(--border-light);
+            }
+            .approach-item:first-child {
+                padding-left: 1.5rem;
+                border-left: 2px solid var(--border-light);
             }
 
-            .offerings-grid {
-                grid-template-columns: 1fr;
-            }
+            .offerings-grid { grid-template-columns: 1fr; }
+            .traditions-list { grid-template-columns: 1fr; }
+            .credentials-columns { grid-template-columns: 1fr; }
 
-            .traditions-list {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
+            .session-details { gap: 1.5rem; }
+            .photo-portrait img { max-width: 300px; }
 
             nav .nav-links {
                 display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(26, 26, 26, 0.98);
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(240, 234, 214, 0.98);
                 flex-direction: column;
-                padding: 1.5rem 2rem;
-                gap: 1rem;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                z-index: 99;
             }
+            nav .nav-links.open { display: flex; }
+            nav .nav-links a { font-size: 1rem; }
+            .menu-toggle { display: block; }
 
-            nav .nav-links.open {
-                display: flex;
+            footer a {
+                display: inline-block;
+                margin: 0.4rem 0.8rem;
             }
+        }
 
-            .menu-toggle {
-                display: block;
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+            .reveal { opacity: 1; transform: none; }
+            .scroll-hint .line { animation: none; }
+            .ticker { animation: none; }
+        }
+
+        /* ========================
+           Scrolling Ticker
+           ======================== */
+        .ticker-wrap {
+            overflow: hidden;
+            background: var(--charcoal);
+            padding: 0.8rem 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ticker-wrap--light {
+            background: var(--crimson);
+        }
+
+        .ticker {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            animation: ticker-scroll 36s linear infinite;
+            white-space: nowrap;
+        }
+
+        .ticker-item {
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--paper);
+            padding: 0 2rem;
+        }
+
+        .ticker-dot {
+            color: var(--crimson);
+            padding: 0;
+            font-size: 0.72rem;
+            line-height: 1;
+        }
+
+        .ticker-wrap--light .ticker-dot {
+            color: rgba(240, 234, 214, 0.4);
+        }
+
+        .ticker-wrap--light .ticker-item {
+            color: var(--white);
+        }
+
+        @keyframes ticker-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .ticker-wrap:hover .ticker {
+            animation-play-state: paused;
+        }
+
+        /* Angled hero ticker */
+        .ticker-outer {
+            position: relative;
+            z-index: 10;
+            margin: -1.5rem 0 -0.5rem;
+            transform: rotate(-2.5deg);
+            width: 114%;
+            left: -7%;
+        }
+
+        .ticker-outer .ticker-wrap {
+            padding: 1.25rem 0;
+            border-top: 2px solid var(--crimson);
+            border-bottom: 6px solid var(--crimson);
+        }
+
+        .ticker-outer .ticker-item {
+            font-size: 1.35rem;
+            letter-spacing: 0.12em;
+            font-weight: 700;
+        }
+
+        .ticker-outer .ticker-dot,
+        .ticker-outer .ticker-bolt {
+            font-size: 2rem;
+            padding: 0;
+        }
+
+        .ticker-dot {
+            line-height: 1;
+        }
+
+        .ticker-bolt {
+            color: var(--crimson);
+            padding: 0;
+            line-height: 1;
+            font-style: normal;
+        }
+
+        .ticker--reverse {
+            animation-duration: 24s;
+            animation-direction: reverse;
+        }
+
+        /* ========================
+           Hero Ghost Text
+           ======================== */
+        .hero-ghost {
+            position: absolute;
+            bottom: -0.12em;
+            right: -0.04em;
+            font-family: var(--font-display);
+            font-size: clamp(10rem, 24vw, 22rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(26, 26, 26, 0.08);
+            line-height: 1;
+            pointer-events: none;
+            -webkit-user-select: none;
+            user-select: none;
+            z-index: 0;
+            letter-spacing: -0.02em;
+        }
+
+        /* ========================
+           Statement Photo — corner badge
+           ======================== */
+        .statement-badge {
+            position: absolute;
+            top: -1rem;
+            right: -1rem;
+            background: var(--gold);
+            color: var(--charcoal);
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.55rem 0.9rem;
+            border: 2px solid var(--charcoal);
+            box-shadow: var(--shadow);
+            z-index: 2;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* ========================
+           Photo Portrait — overlap caption
+           ======================== */
+        .photo-portrait-frame {
+            position: relative;
+        }
+
+        .photo-overlap-caption {
+            position: absolute;
+            bottom: 2rem;
+            left: -1.5rem;
+            background: var(--charcoal);
+            color: var(--paper);
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.5rem 1.25rem;
+            border: 2px solid var(--charcoal);
+            box-shadow: 3px 3px 0 0 var(--crimson);
+            z-index: 5;
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .photo-overlap-caption .sep {
+            color: var(--crimson);
+            font-size: 0.6rem;
+        }
+
+        /* ========================
+           Pull Quote — ghost background word
+           ======================== */
+        .pull-quote::before {
+            content: 'PRACTICE';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-display);
+            font-size: clamp(6rem, 16vw, 15rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(240, 234, 214, 0.05);
+            pointer-events: none;
+            -webkit-user-select: none;
+            user-select: none;
+            white-space: nowrap;
+            z-index: 0;
+        }
+
+        /* ========================
+           Email Signup
+           ======================== */
+        .email-signup {
+            background: var(--charcoal);
+            padding: clamp(5rem, 9vw, 9rem) 0;
+            position: relative;
+            overflow: hidden;
+            border-top: 2px solid var(--charcoal);
+        }
+
+        .email-signup::after {
+            content: 'LISTEN';
+            position: absolute;
+            right: -0.05em;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-display);
+            font-size: clamp(8rem, 20vw, 18rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(240, 234, 214, 0.05);
+            pointer-events: none;
+            -webkit-user-select: none;
+            user-select: none;
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .email-signup .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .email-signup .overline {
+            color: var(--gold);
+        }
+
+        .email-signup h2 {
+            color: var(--paper);
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            margin-bottom: 1rem;
+        }
+
+        .email-signup > .container > p {
+            color: rgba(240, 234, 214, 0.55);
+            max-width: 400px;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+        }
+
+        .email-form {
+            display: flex;
+            max-width: 480px;
+            border: 2px solid rgba(240, 234, 214, 0.35);
+            transition: border-color 0.2s;
+        }
+
+        .email-form:focus-within {
+            border-color: var(--paper);
+        }
+
+        .email-form input[type="email"] {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 0.9rem 1.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--paper);
+            outline: none;
+            letter-spacing: 0.04em;
+            min-width: 0;
+        }
+
+        .email-form input[type="email"]::placeholder {
+            color: rgba(240, 234, 214, 0.28);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.7rem;
+        }
+
+        .email-form button {
+            background: var(--crimson);
+            border: none;
+            border-left: 2px solid rgba(240, 234, 214, 0.35);
+            padding: 0.9rem 1.5rem;
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--paper);
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .email-form button:hover {
+            background: var(--crimson-dark);
+        }
+
+        .email-form-note {
+            margin-top: 0.85rem;
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.08em;
+            color: rgba(240, 234, 214, 0.28);
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .hero-ghost {
+                font-size: clamp(6rem, 30vw, 10rem);
+            }
+            .statement-badge {
+                top: -0.75rem;
+                right: -0.75rem;
+            }
+            .photo-overlap-caption {
+                left: 0;
+                font-size: 0.75rem;
+            }
+            .email-form {
+                flex-direction: column;
+            }
+            .email-form button {
+                border-left: none;
+                border-top: 2px solid rgba(240, 234, 214, 0.35);
+                padding: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- Navigation -->
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- Nav -->
 <nav>
     <div class="container">
-        <span class="brand">Savino Picciotto</span>
-        <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="brand"><a href="/">Subtle Winds</a></span>
+        <button class="menu-toggle" aria-label="Toggle menu">
             <span></span><span></span><span></span>
         </button>
         <ul class="nav-links">
@@ -605,78 +1422,208 @@
             <li><a href="#approach">Approach</a></li>
             <li><a href="#sessions">Sessions</a></li>
             <li><a href="#offerings">Offerings</a></li>
-            <li><a href="#traditions">Traditions</a></li>
-            <li><a href="#contact">Connect</a></li>
+            <li><a href="#contact" class="nav-cta">Connect</a></li>
         </ul>
     </div>
 </nav>
 
-<!-- Hero -->
-<section class="hero" id="home">
-    <div class="container">
-        <p class="hero-eyebrow">Meditation &middot; Sound Practice &middot; Contemplative Guidance</p>
-        <h1>Practice, not belief.<br>Rooted in tradition,<br>stripped of dogma.</h1>
-        <p>Meditation, sound practice, and guided inner work drawn from multiple contemplative traditions. Real depth, grounded language, no fluff. I teach what I practice.</p>
-        <a href="#offerings" class="btn">Explore Offerings</a>
+<!-- ============================
+     HERO
+     ============================ -->
+<section class="hero" id="main">
+    <div class="hero-content">
+        <h1 class="reveal">Practice,<br><em>not belief.</em></h1>
+        <p class="hero-sub reveal reveal-delay-1">Meditation &middot; Sound &middot; Contemplative Guidance</p>
     </div>
+    <div class="hero-ghost" aria-hidden="true">PRESENCE</div>
 </section>
 
-<!-- About -->
-<section class="about" id="about">
+<!-- Ticker 1 -->
+<div class="ticker-outer">
+<div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker">
+        <span class="ticker-item">Sound</span><span class="ticker-bolt">&#x26A1;&#xFE0E;</span>
+        <span class="ticker-item">Silence</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Practice</span><span class="ticker-bolt">&#x26A1;&#xFE0E;</span>
+        <span class="ticker-item">Presence</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Awareness</span><span class="ticker-bolt">&#x26A1;&#xFE0E;</span>
+        <span class="ticker-item">Resonance</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Deep Listening</span><span class="ticker-bolt">&#x26A1;&#xFE0E;</span>
+        <span class="ticker-item">Grounded Depth</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Attention</span><span class="ticker-bolt">&#x26A1;&#xFE0E;</span>
+        <span class="ticker-item">Sound</span><span class="ticker-bolt">&#x26A1;&#xFE0E;</span>
+        <span class="ticker-item">Silence</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Practice</span><span class="ticker-bolt">&#x26A1;&#xFE0E;</span>
+        <span class="ticker-item">Presence</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Awareness</span><span class="ticker-bolt">&#x26A1;&#xFE0E;</span>
+        <span class="ticker-item">Resonance</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Deep Listening</span><span class="ticker-bolt">&#x26A1;&#xFE0E;</span>
+        <span class="ticker-item">Grounded Depth</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Attention</span><span class="ticker-bolt">&#x26A1;&#xFE0E;</span>
+    </div>
+</div>
+</div>
+
+<!-- ============================
+     STATEMENT
+     ============================ -->
+<section class="statement">
     <div class="container">
-        <div class="about-grid">
-            <div class="about-intro">
-                <h2>Different traditions,<br>same aim.</h2>
-                <p>I'm a meditation teacher and contemplative practitioner — not a guru, not a monk, not a brand. I work with people who want a real practice without the jargon, the conversion energy, or the "just breathe" basics.</p>
-                <p>My path has moved through Tibetan Buddhist philosophy, sound meditation, earth-based ceremony, and consciousness practices rooted in intention and awareness. These aren't competing systems — they're different doors into the same room: <em>waking up to what's here and learning to move through life with clarity and intention.</em></p>
-                <p>I also build AI products, make music, and throw events. Practice isn't separate from life — it's the foundation everything else stands on.</p>
+        <div class="statement-layout">
+            <div class="statement-photo reveal">
+                <span class="statement-badge" aria-hidden="true">10+ Years<br>NYC</span>
+                <img src="../images/gong-closeup-gold-bokeh.jpg" alt="Savino seated cross-legged before a bronze Paiste gong, felt mallets in hand, warm golden bokeh light behind" loading="lazy">
             </div>
-            <div class="credentials">
-                <h3>Background</h3>
-                <ul>
-                    <li>Three Jewels certified meditation teacher</li>
-                    <li><span class="years">10 years</span> facilitating sound meditations</li>
-                    <li><span class="years">6 years</span> formal study of Tibetan Buddhist philosophy</li>
-                    <li><span class="years">8 years</span> practicing and facilitating earth-based ceremony</li>
-                    <li>Designed and led retreat experiences; trained under Buddhist and earth wisdom teachers across three continents</li>
-                </ul>
+            <div class="statement-text reveal reveal-delay-1">
+                <p>Meditation, sound practice, and guided inner work drawn from multiple contemplative traditions. Real depth, grounded language, no fluff. I teach what I practice.</p>
+                <div class="statement-actions">
+                    <a href="#offerings" class="btn btn-primary">Book a Private Session</a>
+                    <a href="#sessions" class="btn btn-outline">Group Sessions</a>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Approach -->
+<!-- ============================
+     ABOUT
+     ============================ -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-layout">
+            <div class="about-text reveal">
+                <p class="overline">About</p>
+                <h2>Different traditions,<br>same aim.</h2>
+                <p>I'm a meditation teacher and contemplative practitioner — not a guru, not a monk, not a brand. I work with people who want a real practice without the jargon, the conversion energy, or the "just breathe" basics.</p>
+                <p>My path has moved through Tibetan Buddhist philosophy, sound meditation, earth-based ceremony, and consciousness practices rooted in intention and awareness. These aren't competing systems — they're different doors into the same room: <em>waking up to what's here and learning to move through life with clarity and intention.</em></p>
+                <p>I also build AI products, make music, and produce sound-driven events — including the Harmonic Resonance Chamber ambient series at House of Yes. Practice isn't separate from life — it's the foundation everything else stands on.</p>
+            </div>
+            <div class="about-photo reveal reveal-delay-1">
+                <img src="../images/kit-1.png" alt="Collection of Tibetan singing bowls, shruti box, frame drum, and chimes arranged on a wooden table in natural light" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================
+     PULL QUOTE
+     ============================ -->
+<section class="pull-quote">
+    <div class="inner">
+        <div class="pull-quote-rule"></div>
+        <blockquote class="reveal">
+            I teach what I practice.<br>
+            I practice what I teach.
+        </blockquote>
+    </div>
+</section>
+
+<!-- ============================
+     CREDENTIALS
+     ============================ -->
+<section class="credentials">
+    <div class="container reveal">
+        <p class="overline">Background</p>
+        <ul class="credentials-columns">
+            <li>Three Jewels certified meditation teacher</li>
+            <li><span class="hl">10 years</span> facilitating sound meditations in NYC</li>
+            <li>Standing series at Three Jewels and Sky Ting</li>
+            <li>Guest teacher, Jackie Cantwell Sound Meditation Teacher Training</li>
+            <li>Creator, Harmonic Resonance Chamber — ambient event series at House of Yes</li>
+            <li>Corporate clients include monday.com, BCG, Headway, and Clubhouse</li>
+            <li><span class="hl">6 years</span> formal study of Tibetan Buddhist philosophy</li>
+            <li><span class="hl">8 years</span> practicing and facilitating earth-based ceremony</li>
+            <li>Retreat experiences across three continents</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ============================
+     EPIGRAPH — Csikszentmihalyi
+     ============================ -->
+<div class="epigraph reveal">
+    <blockquote>"If we can learn to be mindful of the music we listen to, this can unlock other levels: the sensory, feeling the body responding to rhythm and bass; the analogic, when you see corresponding images in your mind's eye; and the analytic, in which you analyze the structure of a piece. But to become mindful, we need to strengthen our self-control — which can be achieved by tapping into ancient Eastern wisdom."</blockquote>
+    <cite>Mihaly Csikszentmihalyi, <em>Flow</em></cite>
+</div>
+
+<!-- ============================
+     PHOTO — Sedona
+     ============================ -->
+<div class="photo-portrait">
+    <div class="photo-portrait-frame reveal">
+        <img src="../images/sedona-meditation-cave.jpg" alt="Savino meditating cross-legged inside a natural red rock cave in Sedona, Arizona" loading="lazy">
+        <div class="photo-overlap-caption" aria-label="Sedona, Arizona">
+            <span>Sedona</span><span class="sep">•</span><span>Arizona</span>
+        </div>
+    </div>
+</div>
+
+<!-- ============================
+     APPROACH
+     ============================ -->
 <section class="approach" id="approach">
     <div class="container">
-        <div class="divider"></div>
-        <h2>Grounded depth.</h2>
-        <p>Most meditation offerings are either too religious, too woo, too clinical, or too basic. This is none of those. These are practices from real traditions, taught by someone who's done the work — in language that respects both the source and the student.</p>
-        <div class="approach-pillars">
-            <div class="pillar">
-                <h4>Practice Over Belief</h4>
+        <div class="approach-intro reveal">
+            <p class="overline">Approach</p>
+            <h2>Grounded depth.</h2>
+            <p>Most meditation offerings are either too religious, too woo, too clinical, or too basic. This is none of those. Practices from real traditions, taught in language that respects both the source and the student.</p>
+        </div>
+        <div class="approach-items">
+            <div class="approach-item reveal reveal-delay-1">
+                <h3>Practice Over Belief</h3>
                 <p>You don't need to adopt a worldview. You need tools that work. Everything here is grounded in direct experience.</p>
             </div>
-            <div class="pillar">
-                <h4>Multi-Tradition Depth</h4>
+            <div class="approach-item reveal reveal-delay-2">
+                <h3>Multi-Tradition Depth</h3>
                 <p>Buddhist contemplation, sonic practice, earth-based ceremony, consciousness work. Different traditions, one through-line: attention and awareness.</p>
             </div>
-            <div class="pillar">
-                <h4>Inner Technology</h4>
+            <div class="approach-item reveal reveal-delay-3">
+                <h3>Inner Technology</h3>
                 <p>These practices are technologies for working with your mind, your attention, and your relationship to reality. Ancient tools, modern application.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Sessions -->
+<!-- ============================
+     PHOTO — bowls (landscape)
+     ============================ -->
+<div class="photo-landscape">
+    <img src="../images/tibetan-bowls-1.png" alt="Tibetan singing bowl with wooden mallet in warm natural light" loading="lazy">
+</div>
+
+<!-- Ticker 2 -->
+<div class="ticker-wrap ticker-wrap--light" aria-hidden="true">
+    <div class="ticker ticker--reverse">
+        <span class="ticker-item">No Belief Required</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Inner Technology</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Multi-Tradition Depth</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Practice Over Theory</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Ancient Tools</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Modern Life</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">No Belief Required</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Inner Technology</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Multi-Tradition Depth</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Practice Over Theory</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Ancient Tools</span><span class="ticker-dot">•</span>
+        <span class="ticker-item">Modern Life</span><span class="ticker-dot">•</span>
+    </div>
+</div>
+
+<!-- ============================
+     SESSIONS
+     ============================ -->
 <section class="sessions" id="sessions">
     <div class="container">
-        <h2>Live Sound Meditation</h2>
-        <p>After years of co-facilitating, I'm launching my own solo sound meditation sessions in NYC. Deep listening, singing bowls, sustained tones — the practice many of you already know.</p>
-        <div class="session-card">
-            <h3>Coming Spring 2026</h3>
-            <h4>Weekly Evening Sound Meditation</h4>
-            <p>A dedicated weekly session returning to the format and depth you've experienced before — now with a home studio and a consistent cadence. Details on venue, day, and time coming soon.</p>
+        <div class="reveal">
+            <p class="overline">Live Events</p>
+            <h2>Live Sound Meditation</h2>
+            <p>I've been facilitating sound meditation in NYC for over a decade. Deep listening, singing bowls, sustained tones. This is a return to a dedicated series.</p>
+        </div>
+        <div class="session-card reveal reveal-delay-1">
+            <p class="overline" style="margin-bottom: 0.5rem;">Launching Spring 2026</p>
+            <h3>Bi-Weekly Evening Sound Meditation — NYC</h3>
+            <p>A dedicated bi-weekly session in Manhattan — singing bowls, sustained tones, deep listening. No fluff, no performance. Just practice.</p>
             <div class="session-details">
                 <div class="session-detail">
                     <span class="label">Where</span>
@@ -684,105 +1631,169 @@
                 </div>
                 <div class="session-detail">
                     <span class="label">When</span>
-                    <span class="value">Weeknight Evenings</span>
+                    <span class="value">Bi-weekly &middot; Evenings</span>
                 </div>
                 <div class="session-detail">
                     <span class="label">Format</span>
-                    <span class="value">60&ndash;90 min &middot; In Person</span>
+                    <span class="value">60–90 min &middot; In Person</span>
+                </div>
+                <div class="session-detail">
+                    <span class="label">Offering</span>
+                    <span class="value">$35–45</span>
                 </div>
             </div>
             <div class="notify-cta">
-                <p>Want to know when sessions launch? Drop me a line and I'll make sure you're first to know.</p>
-                <a href="mailto:savino@subtlewinds.io?subject=Sound%20Meditation%20%E2%80%94%20Keep%20Me%20Posted" class="btn btn-primary">Get Notified</a>
+                <p>Drop your email to be first on the list.</p>
+                <a href="mailto:savino@subtlewinds.io?subject=Sound%20Meditation%20%E2%80%94%20Keep%20Me%20Posted" class="btn btn-primary">Join the List</a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Offerings -->
+<!-- ============================
+     OFFERINGS
+     ============================ -->
 <section class="offerings" id="offerings">
     <div class="container">
-        <h2>Offerings</h2>
-        <p>Individual and group formats — in person and virtual. Each session is shaped to where you are and what you need.</p>
+        <div class="offerings-header reveal">
+            <h2>Offerings</h2>
+            <p>Individual and group formats, in person and virtual. Shaped to where you are and what you need.</p>
+        </div>
         <div class="offerings-grid">
-            <div class="offering-card">
-                <h3>Sound</h3>
-                <h4>Sound Meditation</h4>
-                <p>Deep listening through singing bowls, tones, and sustained sound. Not "healing" — just practice. A doorway into presence through the ears.</p>
-                <span class="format">Group + Private &middot; NYC &middot; <a href="#sessions">Sessions launching Spring 2026</a></span>
-            </div>
-            <div class="offering-card">
-                <h3>Teaching</h3>
-                <h4>1-on-1 Meditation Teaching</h4>
+            <div class="offering-card reveal reveal-delay-1">
+                <span class="tag">Accepting Students</span>
+                <p class="cat">Teaching</p>
+                <h3>1-on-1 Meditation Teaching</h3>
                 <p>Personalized practice design. Whether you're starting, deepening, or rebuilding — we build a practice that fits your actual life.</p>
-                <span class="format">Private &middot; In Person or Virtual</span>
+                <span class="price">$150 / session</span>
+                <span class="meta">or $500/month (4 sessions)</span>
+                <span class="format-tag">Private &middot; In Person or Virtual</span>
+                <br><a href="mailto:savino@subtlewinds.io?subject=Private%20Teaching%20%E2%80%94%20Interested" class="cta-link">Book an Intro Session</a>
             </div>
-            <div class="offering-card">
-                <h3>Guidance</h3>
-                <h4>Contemplative Guidance</h4>
-                <p>Ongoing mentorship exploring attention, intention, and awareness. Drawing from Buddhist dharma, consciousness practice, and direct experience.</p>
-                <span class="format">Ongoing &middot; Virtual or In Person</span>
+            <div class="offering-card reveal reveal-delay-2">
+                <span class="tag">Accepting Clients</span>
+                <p class="cat">Guidance</p>
+                <h3>Contemplative Guidance</h3>
+                <p>Ongoing mentorship exploring attention, intention, and awareness. Buddhist dharma, consciousness practice, direct experience. Includes retreat prep and integration.</p>
+                <span class="price">$400 / month</span>
+                <span class="meta">4 sessions/month &middot; ongoing relationship</span>
+                <span class="format-tag">Ongoing &middot; Virtual or In Person</span>
+                <br><a href="mailto:savino@subtlewinds.io?subject=Contemplative%20Guidance%20%E2%80%94%20Interested" class="cta-link">Start a Conversation</a>
             </div>
-            <div class="offering-card">
-                <h3>Retreats</h3>
-                <h4>Retreat Guidance</h4>
-                <p>Planning, preparation, and integration support for immersive retreats. What to expect, how to prepare, how to bring it home.</p>
-                <span class="format">Consultation &middot; Virtual</span>
+            <div class="offering-card reveal reveal-delay-3">
+                <span class="tag">Sessions Available</span>
+                <p class="cat">Sound</p>
+                <h3>Sound Meditation</h3>
+                <p>Deep listening through singing bowls, tones, and sustained sound. Not "healing" — just practice. A doorway into presence through the ears.</p>
+                <span class="price">$35–45 / person (group)</span>
+                <span class="meta">Private 1-on-1: $200/session &middot; <a href="#sessions">Group launching Spring 2026</a></span>
+                <span class="format-tag">Group + Private &middot; NYC</span>
+                <br><a href="mailto:savino@subtlewinds.io?subject=Private%20Sound%20Meditation%20%E2%80%94%20Interested" class="cta-link">Book Private Session</a>
+            </div>
+            <div class="offering-card reveal reveal-delay-4">
+                <span class="tag">Booking Now</span>
+                <p class="cat">Corporate &amp; Events</p>
+                <h3>Teams &amp; Private Groups</h3>
+                <p>Sound meditation for your team, offsite, or gathering. Past clients include monday.com, BCG, Headway, and Clubhouse.</p>
+                <span class="price">$2,500–4,500 / session</span>
+                <span class="meta">Flat rate &middot; 10–50 people &middot; 60–90 min</span>
+                <span class="meta">4-session program: $8,000 &middot; Retainer: from $2,500/mo</span>
+                <span class="format-tag">On-site &middot; NYC + Virtual</span>
+                <br><a href="mailto:savino@subtlewinds.io?subject=Corporate%20Wellness%20%E2%80%94%20Inquiry" class="cta-link">Inquire</a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Traditions -->
-<section class="traditions" id="traditions">
+<!-- ============================
+     TRADITIONS
+     ============================ -->
+<section class="traditions">
     <div class="container">
-        <h2>The Traditions</h2>
-        <p>Multiple lineages, one aim — practices for working with attention, awareness, and reality.</p>
+        <div class="traditions-intro reveal">
+            <p class="overline">Lineage &amp; Study</p>
+            <h2>Where this comes from.</h2>
+            <p>I don't teach from one tradition exclusively. What I offer draws from multiple systems — each offering different lenses for attention, awareness, and presence.</p>
+        </div>
         <div class="traditions-list">
-            <div class="tradition">
-                <h4>Buddhist Contemplation</h4>
-                <p>Sitting practice, contemplative inquiry, ethical awareness. The foundation.</p>
+            <div class="tradition-item reveal">
+                <h3>Tibetan Buddhist Philosophy</h3>
+                <p>6 years of formal study. Mind training, emptiness, interdependence. The philosophical backbone of the contemplative work.</p>
             </div>
-            <div class="tradition">
-                <h4>Sound Practice</h4>
-                <p>Singing bowls, tones, deep listening. Sound as a doorway to stillness and presence.</p>
+            <div class="tradition-item reveal">
+                <h3>Sound &amp; Sonic Practice</h3>
+                <p>10+ years with singing bowls, shruti box, gongs, and sustained tones. Sound as a technology for attention and presence.</p>
             </div>
-            <div class="tradition">
-                <h4>Intention &amp; Reality Navigation</h4>
-                <p>Working with intention, reducing excess importance, and learning to move through life's possibilities with clarity.</p>
+            <div class="tradition-item reveal">
+                <h3>Earth-Based Ceremony</h3>
+                <p>8 years of practice rooted in ceremony, land-based awareness, and seasonal attunement. Ceremony as container for transformation.</p>
             </div>
-            <div class="tradition">
-                <h4>Earth-Based Practice</h4>
-                <p>Outdoor meditation, ceremony, nature as teacher. Grounding in the living world.</p>
-            </div>
-            <div class="tradition">
-                <h4>Retreat Immersion</h4>
-                <p>Preparation, participation, and integration. The transformative power of going deep.</p>
-            </div>
-            <div class="tradition">
-                <h4>Somatic Awareness</h4>
-                <p>Body-based practice, breath work, attention training rooted in the physical.</p>
+            <div class="tradition-item reveal">
+                <h3>Consciousness &amp; Inquiry</h3>
+                <p>Direct experience practices: self-inquiry, awareness of awareness, and inner observation. No belief required — only attention.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Contact -->
-<section class="contact" id="contact">
-    <div class="container">
-        <div class="divider"></div>
-        <h2>Begin a conversation.</h2>
-        <p>Whether you're looking to start a practice, deepen one, or explore what's possible — I'd be glad to talk.</p>
-        <a href="mailto:savino@subtlewinds.io" class="btn btn-primary">Get in Touch</a>
+<!-- ============================
+     EMAIL SIGNUP
+     ============================ -->
+<section class="email-signup" id="contact">
+    <div class="container reveal">
+        <p class="overline">Stay Connected</p>
+        <h2>Be first<br>to know.</h2>
+        <p>Group sessions, private intensives, events. No noise — just signal.</p>
+        <form class="email-form" action="https://formspree.io/f/savino@subtlewinds.io" method="POST">
+            <input type="email" name="email" placeholder="Your email" required aria-label="Email address">
+            <button type="submit">Join the List</button>
+        </form>
+        <p class="email-form-note">No spam. Unsubscribe anytime.</p>
     </div>
 </section>
 
 <!-- Footer -->
 <footer>
     <div class="container">
-        &copy; 2026 Savino Picciotto
+        <a href="/">Subtle Winds</a>
+        <a href="/practice">Practice</a>
+        <a href="/work">Portfolio</a>
+        <a href="/corporate">Corporate Wellness</a>
+        <a href="/links">Links</a>
     </div>
 </footer>
+
+<!-- Scripts -->
+<script>
+    // Nav scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile menu
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+    });
+    reveals.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
