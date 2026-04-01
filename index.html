@@ -770,6 +770,238 @@
         }
 
         /* ========================
+           Audit Progress Bar
+           ======================== */
+
+        .audit-progress {
+            max-width: 560px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .progress-header h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--charcoal);
+            margin-bottom: 0.25rem;
+        }
+
+        .progress-subtitle {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-bar-track {
+            width: 100%;
+            height: 8px;
+            background: var(--paper-dark);
+            border: 1px solid var(--charcoal);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--crimson);
+            transition: width 0.4s ease;
+        }
+
+        .progress-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.03em;
+            transition: color 0.3s ease;
+        }
+
+        .progress-step.active {
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+
+        .progress-step.done {
+            color: var(--charcoal);
+        }
+
+        .pstep-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--paper-dark);
+            border: 2px solid var(--text-muted);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active .pstep-dot {
+            background: var(--crimson);
+            border-color: var(--crimson);
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        .progress-step.done .pstep-dot {
+            background: var(--charcoal);
+            border-color: var(--charcoal);
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .pstep-label { flex: 1; }
+
+        .pstep-check {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--charcoal);
+        }
+
+        /* ========================
+           Inline Snapshot Result
+           ======================== */
+
+        .audit-result {
+            max-width: 560px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .result-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .result-header h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--charcoal);
+            margin-bottom: 0.25rem;
+        }
+
+        .result-company {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+        }
+
+        .result-headline {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            text-align: center;
+            padding: 1.25rem;
+            background: var(--gold-muted);
+            border: 2px solid var(--charcoal);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .result-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .result-metric {
+            text-align: center;
+            padding: 1rem 0.5rem;
+            border: 2px solid var(--charcoal);
+            background: var(--white);
+        }
+
+        .result-metric-number {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--crimson);
+            margin-bottom: 0.25rem;
+        }
+
+        .result-metric-desc {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            letter-spacing: 0.03em;
+            line-height: 1.4;
+        }
+
+        .result-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .result-highlight {
+            padding: 1rem;
+            border: 2px solid var(--charcoal);
+        }
+
+        .result-highlight-green { background: #E8F0E8; }
+        .result-highlight-gold { background: var(--gold-muted); }
+
+        .result-highlight-label {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .result-highlight p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--charcoal);
+        }
+
+        .result-bottom-line {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--charcoal);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .result-ctas {
+            text-align: center;
+        }
+
+        .result-ctas .btn {
+            margin-bottom: 0.75rem;
+        }
+
+        .result-email-note {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+        }
+
+        @media (max-width: 640px) {
+            .result-metrics { grid-template-columns: 1fr; }
+            .result-highlights { grid-template-columns: 1fr; }
+        }
+
+        /* ========================
            Footer
            ======================== */
         footer {
@@ -923,7 +1155,7 @@
         
         <form class="hero-form reveal reveal-delay-3" id="audit-form">
             <div class="form-group">
-                <label for="report-email">Your Email *</label>
+                <label for="report-email">Where should we send your report? *</label>
                 <input type="email" id="report-email" name="email" placeholder="you@yourbusiness.com" required>
             </div>
             
@@ -940,6 +1172,63 @@
             <button type="submit" class="btn btn-primary btn-large" id="submit-btn">Generate My Free Report</button>
             <p class="form-status" id="form-status">✓ No credit card &nbsp;&nbsp; ✓ Takes 2 minutes &nbsp;&nbsp; ✓ Sent to your email</p>
         </form>
+
+        <!-- Live Progress UI (hidden until form submit) -->
+        <div id="audit-progress" class="audit-progress" style="display: none;">
+            <div class="progress-header">
+                <h3 id="progress-title">Analyzing your business...</h3>
+                <p id="progress-subtitle" class="progress-subtitle"></p>
+            </div>
+
+            <div class="progress-bar-track">
+                <div class="progress-bar-fill" id="progress-fill"></div>
+            </div>
+
+            <div class="progress-steps">
+                <div class="progress-step" id="pstep-1">
+                    <span class="pstep-dot"></span>
+                    <span class="pstep-label">Scraping website</span>
+                    <span class="pstep-check" id="pstep-1-check"></span>
+                </div>
+                <div class="progress-step" id="pstep-2">
+                    <span class="pstep-dot"></span>
+                    <span class="pstep-label">Scoring maturity</span>
+                    <span class="pstep-check" id="pstep-2-check"></span>
+                </div>
+                <div class="progress-step" id="pstep-3">
+                    <span class="pstep-dot"></span>
+                    <span class="pstep-label">AI analysis</span>
+                    <span class="pstep-check" id="pstep-3-check"></span>
+                </div>
+                <div class="progress-step" id="pstep-4">
+                    <span class="pstep-dot"></span>
+                    <span class="pstep-label">Building your report</span>
+                    <span class="pstep-check" id="pstep-4-check"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inline Snapshot (shown on complete) -->
+        <div id="audit-result" class="audit-result" style="display: none;">
+            <div class="result-header">
+                <h3>Your AI Readiness Snapshot</h3>
+                <p id="result-company" class="result-company"></p>
+            </div>
+
+            <div id="result-headline" class="result-headline"></div>
+
+            <div id="result-metrics" class="result-metrics"></div>
+
+            <div id="result-highlights" class="result-highlights"></div>
+
+            <div id="result-bottom-line" class="result-bottom-line"></div>
+
+            <div class="result-ctas">
+                <a id="result-full-report" href="#" class="btn btn-primary btn-large" target="_blank">View Full Report</a>
+                <a href="https://calendly.com/savinop/free-consult" class="btn btn-large" style="background: var(--charcoal); color: var(--paper);" target="_blank">Book a Free 20-Min Walkthrough</a>
+                <p class="result-email-note" id="result-email-note"></p>
+            </div>
+        </div>
     </div>
     <div class="hero-stripe"></div>
 </section>
@@ -1096,39 +1385,173 @@
         });
     });
 
-    // Audit form submission
+    // Audit form submission with live progress
+    const AUDIT_API = 'https://subtlewinds-audit.onrender.com';
     const auditForm = document.getElementById('audit-form');
     const submitBtn = document.getElementById('submit-btn');
     const formStatus = document.getElementById('form-status');
+    const progressUI = document.getElementById('audit-progress');
+    const resultUI = document.getElementById('audit-result');
+
+    const statusMap = {
+        'pending':   { progress: 5,   step: 0, label: 'Initializing...' },
+        'scraping':  { progress: 25,  step: 1, label: 'Crawling pages and detecting tech stack...' },
+        'scoring':   { progress: 55,  step: 2, label: 'Analyzing maturity across 6 categories...' },
+        'analyzing': { progress: 80,  step: 3, label: 'AI is generating your personalized report...' },
+        'complete':  { progress: 100, step: 4, label: 'Your report is ready!' },
+        'error':     { progress: 0,   step: 0, label: 'Something went wrong.' }
+    };
+
+    let currentProgress = 0;
+    let targetProgress = 0;
+    let userEmail = '';
+
+    function animateProgress() {
+        if (currentProgress < targetProgress) {
+            currentProgress += 0.5;
+            document.getElementById('progress-fill').style.width = currentProgress + '%';
+        }
+        if (progressUI.style.display !== 'none') {
+            requestAnimationFrame(animateProgress);
+        }
+    }
+
+    function updateProgress(status) {
+        const info = statusMap[status] || statusMap['pending'];
+        targetProgress = info.progress;
+        document.getElementById('progress-subtitle').textContent = info.label;
+
+        for (let i = 1; i <= 4; i++) {
+            const step = document.getElementById('pstep-' + i);
+            const check = document.getElementById('pstep-' + i + '-check');
+            if (i < info.step) {
+                step.className = 'progress-step done';
+                check.textContent = '✓';
+            } else if (i === info.step) {
+                step.className = 'progress-step active';
+                check.textContent = '';
+            } else {
+                step.className = 'progress-step';
+                check.textContent = '';
+            }
+        }
+
+        if (status === 'complete') {
+            document.getElementById('progress-title').textContent = 'Analysis complete.';
+        }
+    }
+
+    function renderSnapshot(data) {
+        const snapshot = data.snapshot;
+        if (!snapshot) return;
+
+        // Company name
+        document.getElementById('result-company').textContent = data.company_name || '';
+
+        // Headline
+        document.getElementById('result-headline').textContent = snapshot.headline || '';
+
+        // Metrics
+        const metricsEl = document.getElementById('result-metrics');
+        metricsEl.innerHTML = '';
+        if (snapshot.key_metrics) {
+            snapshot.key_metrics.forEach(m => {
+                metricsEl.innerHTML += `
+                    <div class="result-metric">
+                        <div class="result-metric-number">${m.metric}</div>
+                        <div class="result-metric-desc">${m.description}</div>
+                    </div>`;
+            });
+        }
+
+        // Highlights
+        const highlightsEl = document.getElementById('result-highlights');
+        highlightsEl.innerHTML = '';
+        if (snapshot.strongest_asset) {
+            highlightsEl.innerHTML += `
+                <div class="result-highlight result-highlight-green">
+                    <div class="result-highlight-label">Strongest Asset</div>
+                    <p>${snapshot.strongest_asset}</p>
+                </div>`;
+        }
+        if (snapshot.biggest_gap) {
+            highlightsEl.innerHTML += `
+                <div class="result-highlight result-highlight-gold">
+                    <div class="result-highlight-label">Biggest Opportunity</div>
+                    <p>${snapshot.biggest_gap}</p>
+                </div>`;
+        }
+
+        // Bottom line
+        document.getElementById('result-bottom-line').textContent = snapshot.bottom_line || '';
+
+        // CTA link
+        if (data.share_token) {
+            document.getElementById('result-full-report').href = AUDIT_API + '/report/' + data.share_token;
+        }
+
+        // Email note
+        document.getElementById('result-email-note').textContent =
+            'We\'ve also emailed the full report to ' + userEmail;
+
+        // Show result, hide progress
+        setTimeout(() => {
+            progressUI.style.display = 'none';
+            resultUI.style.display = 'block';
+        }, 800);
+    }
+
+    function pollStatus(auditId) {
+        fetch(AUDIT_API + '/api/audit/' + auditId)
+            .then(r => r.json())
+            .then(data => {
+                updateProgress(data.status);
+
+                if (data.status === 'complete') {
+                    renderSnapshot(data);
+                } else if (data.status === 'error') {
+                    document.getElementById('progress-title').textContent = 'Something went wrong';
+                    document.getElementById('progress-subtitle').textContent =
+                        (data.error_message || 'Please try again') + ' — or email hello@subtlewinds.io';
+                } else {
+                    setTimeout(() => pollStatus(auditId), 2000);
+                }
+            })
+            .catch(() => setTimeout(() => pollStatus(auditId), 3000));
+    }
 
     auditForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const email = document.getElementById('report-email').value;
+        userEmail = document.getElementById('report-email').value;
         const url = document.getElementById('report-url').value;
         const social = document.getElementById('report-social').value;
 
-        submitBtn.textContent = 'Analyzing...';
+        submitBtn.textContent = 'Starting audit...';
         submitBtn.disabled = true;
-        formStatus.textContent = 'Running your audit — this takes about 2 minutes.';
+        formStatus.textContent = '';
 
         try {
-            const res = await fetch('https://subtlewinds-audit.onrender.com/audit/public', {
+            const res = await fetch(AUDIT_API + '/audit/public', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, url, social })
+                body: JSON.stringify({ email: userEmail, url, social })
             });
 
             if (!res.ok) throw new Error('Server error');
+            const data = await res.json();
 
-            submitBtn.textContent = 'Report Sent!';
-            submitBtn.style.background = '#1A1A1A';
-            auditForm.querySelectorAll('input').forEach(el => el.disabled = true);
-            formStatus.textContent = 'Your report is on its way — check your inbox in about 2 minutes.';
-            formStatus.style.color = '#C5A945';
+            // Hide form, show progress
+            auditForm.style.display = 'none';
+            progressUI.style.display = 'block';
+            animateProgress();
+            updateProgress('pending');
+
+            // Start polling
+            pollStatus(data.audit_id);
 
         } catch (err) {
-            submitBtn.textContent = 'Generate My Report';
+            submitBtn.textContent = 'Generate My Free Report';
             submitBtn.disabled = false;
             formStatus.textContent = 'Something went wrong. Please try again or email hello@subtlewinds.io';
             formStatus.style.color = '#DC143C';
