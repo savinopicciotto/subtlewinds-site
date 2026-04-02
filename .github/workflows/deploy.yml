@@ -16,3 +16,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ff3b9c47af81de3db4147582e203e5b8
           command: pages deploy . --project-name=subtlewinds-site
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
