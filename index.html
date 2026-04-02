@@ -36,7 +36,6 @@
         "logo": "https://subtlewinds.io/favicon.svg",
         "description": "AI automation agency helping local businesses save time and money with custom AI-powered workflows.",
         "email": "hello@subtlewinds.io",
-        "sameAs": [],
         "contactPoint": {
             "@type": "ContactPoint",
             "email": "hello@subtlewinds.io",
@@ -703,6 +702,8 @@
             border: 2px solid var(--charcoal);
             box-shadow: var(--shadow-lg);
             text-align: left;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card h3 {
@@ -729,6 +730,7 @@
         .service-card ul {
             list-style: none;
             margin: 1.5rem 0;
+            flex: 1;
         }
 
         .service-card li {
@@ -746,7 +748,161 @@
         .service-card .btn {
             width: 100%;
             text-align: center;
-            margin-top: 1rem;
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+
+        /* ========================
+           Case Studies
+           ======================== */
+        .case-studies {
+            padding: 80px 0;
+            background: var(--paper-dark);
+        }
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .case-card {
+            background: var(--white);
+            border: 2px solid var(--charcoal);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .case-card .case-client {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+        .case-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        .case-card .case-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: auto;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border-light);
+        }
+        .case-card .stat-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+        .case-card .stat-number {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            white-space: nowrap;
+        }
+        .case-card .stat-label {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+        .testimonial-bar {
+            margin-top: 3rem;
+            background: var(--charcoal);
+            color: var(--paper);
+            padding: 2rem 2.5rem;
+            border-left: 4px solid var(--gold);
+        }
+        .testimonial-bar blockquote {
+            font-size: 1rem;
+            font-style: italic;
+            line-height: 1.7;
+            margin: 0 0 0.75rem;
+            color: var(--paper);
+        }
+        .testimonial-bar cite {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-style: normal;
+        }
+        .case-card .case-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        /* ========================
+           Integrations
+           ======================== */
+        .integrations {
+            padding: 80px 0;
+            background: var(--paper);
+        }
+        .integrations-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem 2rem;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2.5rem;
+        }
+        .integration-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.55;
+            transition: opacity 0.2s;
+        }
+        .integration-item:hover {
+            opacity: 1;
+        }
+        .integration-item img {
+            width: 32px;
+            height: 32px;
+            filter: grayscale(100%);
+        }
+        .integration-item span {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========================
+           Credibility Bar
+           ======================== */
+        .credibility-bar {
+            background: var(--charcoal-light);
+            color: var(--paper);
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(197, 169, 69, 0.3);
+            border-bottom: 1px solid rgba(197, 169, 69, 0.3);
+        }
+        .credibility-bar p {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            text-align: center;
+            margin: 0 auto;
+            color: var(--gold);
+            margin: 0;
         }
 
         /* ========================
@@ -1276,10 +1432,10 @@
 <section class="hero" id="home">
     <div class="container">
         <p class="overline reveal">Free AI Readiness Report</p>
-        <h1 class="reveal reveal-delay-1">Discover Your<br>Company's AI<br><em>Readiness</em></h1>
-        <p class="reveal reveal-delay-2">Enter your website URL below. We analyze your business and send you a personalized report showing your AI readiness across 6 categories — plus specific time and money estimates. Completely free.</p>
-        
-        <p class="hero-trust reveal reveal-delay-2"><strong>A real consulting deliverable — free.</strong> This is the kind of report that normally costs $500+. You get it free because you should understand your AI readiness before making any decisions.</p>
+        <h1 class="reveal reveal-delay-1">Find Out What AI<br>Could Save Your<br><em>Business</em></h1>
+        <p class="reveal reveal-delay-2">Your website reveals more than you think. In 2 minutes, get a personalized report showing exactly where you're losing time and money to manual work — and what to do about it. Completely free.</p>
+
+        <p class="hero-trust reveal reveal-delay-2"><strong>A real consulting deliverable — free.</strong> This is the kind of report that normally costs $500+. We give it free because you should understand your numbers before making any decisions.</p>
         
         <form class="hero-form reveal reveal-delay-3" id="audit-form">
             <div class="form-group">
@@ -1381,14 +1537,91 @@
             </div>
             <div class="step reveal reveal-delay-2">
                 <div class="step-number">2</div>
-                <h3>Our system audits your site</h3>
-                <p>We analyze your current tech stack, digital presence, and operations across 6 key categories.</p>
+                <h3>We map your gaps across 6 categories</h3>
+                <p>Our system analyzes your tech stack, digital presence, and operations to score your maturity across 6 key areas.</p>
             </div>
             <div class="step reveal reveal-delay-3">
                 <div class="step-number">3</div>
-                <h3>Get a custom roadmap</h3>
-                <p>Receive a personalized report with specific recommendations to automate workflows and scale your business.</p>
+                <h3>See exactly what to fix — and what it's worth</h3>
+                <p>Your report includes specific time and money estimates, quick wins, and a prioritized roadmap you can act on immediately.</p>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Case Studies -->
+<section class="case-studies">
+    <div class="container">
+        <div class="section-header reveal">
+            <p class="overline">Selected Work</p>
+            <h2>Shipped to real clients.<br>Running in production.</h2>
+        </div>
+
+        <div class="case-studies-grid">
+            <div class="case-card reveal reveal-delay-1">
+                <p class="case-client">Moneybrook Farm LLC</p>
+                <h3>AI Document Intelligence System</h3>
+                <p class="case-desc">5,000+ scattered documents across email, Drive, and paper. No search, no organization. One person held all institutional knowledge.</p>
+                <div class="case-stat">
+                    <div class="stat-item">
+                        <span class="stat-number">5 wks</span>
+                        <span class="stat-label">delivered — 2 weeks ahead of schedule</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">90%+</span>
+                        <span class="stat-label">document classification confidence</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">expansion requests from other businesses</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-card reveal reveal-delay-2">
+                <p class="case-client">MAC Cosmetics · Estée Lauder</p>
+                <h3>48-Hour Emergency Rescue for Fortune 500 Brand Event</h3>
+                <p class="case-desc">AI-powered keepsake printer failed Monday night. Event Wednesday. 250+ guests expecting personalized prints.</p>
+                <div class="case-stat">
+                    <div class="stat-item">
+                        <span class="stat-number">48 hrs</span>
+                        <span class="stat-label">from broken to fully operational</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">250+</span>
+                        <span class="stat-label">personalized prints delivered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">downtime during live event</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-card reveal reveal-delay-3">
+                <p class="case-client">Resident Advisor × Converse × Highsnobiety</p>
+                <h3>AI-Augmented Event Production at Scale</h3>
+                <p class="case-desc">900-person branded event for three major partners. Normally requires 4–5 person team. Two people available, both working full-time jobs.</p>
+                <div class="case-stat">
+                    <div class="stat-item">
+                        <span class="stat-number">900+</span>
+                        <span class="stat-label">guests, on time and on budget</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2–3×</span>
+                        <span class="stat-label">output with AI-augmented team of two</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">6 wks</span>
+                        <span class="stat-label">coordination across 50+ campaigns</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-bar reveal">
+            <blockquote>"HUGE thanks to you both. You did an amazing job and we / the client were super happy with everything — we honestly couldn't have done it without you."</blockquote>
+            <cite>Luka Taraskevics — Resident Advisor</cite>
         </div>
     </div>
 </section>
@@ -1399,17 +1632,17 @@
         <div class="section-header reveal">
             <p class="overline">Next Steps</p>
             <h2>Ready to implement<br>your roadmap?</h2>
-            <p>After you receive your AI Readiness Report, here's how we can help you turn those recommendations into reality.</p>
+            <p>After you receive your report, here's how we can help you turn those recommendations into reality.</p>
         </div>
 
         <div class="service-grid">
             <div class="service-card reveal reveal-delay-1">
                 <h3>Custom AI Solutions</h3>
-                <p class="service-tagline">Build What You Need</p>
-                <p>We design and build AI systems tailored to your specific workflows — not generic chatbots or off-the-shelf tools.</p>
+                <p class="service-tagline">Built for your workflows, not the generic case</p>
+                <p>We design and build AI systems around your specific business — not generic chatbots or off-the-shelf tools that require you to change how you work.</p>
                 <ul>
-                    <li>Document intelligence systems</li>
-                    <li>Workflow automation</li>
+                    <li>Document intelligence &amp; automation</li>
+                    <li>Email and inbox management</li>
                     <li>Customer experience AI</li>
                     <li>Internal operations tools</li>
                 </ul>
@@ -1417,16 +1650,64 @@
             </div>
 
             <div class="service-card reveal reveal-delay-2">
-                <h3>Creative Strategy</h3>
-                <p class="service-tagline">Sound + AI Experience Design</p>
-                <p>We blend technical AI implementation with creative strategy — from AI-powered sound experiences to experiential brand activations.</p>
+                <h3>SubtleDoc — Managed AI</h3>
+                <p class="service-tagline">Done for you, starting at $750/mo</p>
+                <p>Don't want to manage it yourself? We deploy and run a full AI document and workflow system for your business. You get the results — we handle everything else.</p>
                 <ul>
-                    <li>AI-powered audio experiences</li>
-                    <li>Interactive installations</li>
-                    <li>Brand activation concepts</li>
-                    <li>Technical production</li>
+                    <li>Deployed in days, not months</li>
+                    <li>Classifies, routes, and extracts from any doc</li>
+                    <li>Works with your existing email and Drive</li>
+                    <li>Ongoing management included</li>
                 </ul>
-                <a href="https://calendly.com/savinop/free-consult" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore Creative Work</a>
+                <a href="https://calendly.com/savinop/free-consult" target="_blank" rel="noopener noreferrer" class="btn btn-outline">See How It Works</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Integrations -->
+<section class="integrations">
+    <div class="container">
+        <div class="section-header reveal">
+            <p class="overline">Integrations</p>
+            <h2>We build on the tools<br>you already use.</h2>
+        </div>
+        <div class="integrations-grid reveal">
+            <div class="integration-item">
+                <img src="/images/integrations/gmail.svg" alt="Gmail">
+                <span>Gmail</span>
+            </div>
+            <div class="integration-item">
+                <img src="/images/integrations/googledrive.svg" alt="Google Drive">
+                <span>Google Drive</span>
+            </div>
+            <div class="integration-item">
+                <img src="/images/integrations/googlecalendar.svg" alt="Google Calendar">
+                <span>Calendar</span>
+            </div>
+            <div class="integration-item">
+                <img src="/images/integrations/googlesheets.svg" alt="Google Sheets">
+                <span>Sheets</span>
+            </div>
+            <div class="integration-item">
+                <img src="/images/integrations/slack.svg" alt="Slack">
+                <span>Slack</span>
+            </div>
+            <div class="integration-item">
+                <img src="/images/integrations/notion.svg" alt="Notion">
+                <span>Notion</span>
+            </div>
+            <div class="integration-item">
+                <img src="/images/integrations/airtable.svg" alt="Airtable">
+                <span>Airtable</span>
+            </div>
+            <div class="integration-item">
+                <img src="/images/integrations/whatsapp.svg" alt="WhatsApp">
+                <span>WhatsApp</span>
+            </div>
+            <div class="integration-item">
+                <img src="/images/integrations/dropbox.svg" alt="Dropbox">
+                <span>Dropbox</span>
             </div>
         </div>
     </div>
@@ -1442,8 +1723,8 @@
 
         <div class="faq-grid">
             <div class="faq-card reveal reveal-delay-1">
-                <h3>Is this really free?</h3>
-                <p>Yes. We believe businesses should understand their AI readiness before making any decisions. No credit card, no catch.</p>
+                <h3>Why is this free?</h3>
+                <p>Most businesses make AI decisions blind. We built this so you know exactly where you stand before spending a dollar. No credit card, no catch.</p>
             </div>
 
             <div class="faq-card reveal reveal-delay-2">
@@ -1453,24 +1734,31 @@
 
             <div class="faq-card reveal reveal-delay-1">
                 <h3>How long does the audit take?</h3>
-                <p>About 2 minutes for you (just enter your URL). Our AI takes about 2 minutes to analyze and generate your report.</p>
+                <p>About 2 minutes for you (just enter your URL). Our system takes about 2 minutes to analyze and generate your report.</p>
             </div>
 
             <div class="faq-card reveal reveal-delay-2">
                 <h3>What happens after I get my report?</h3>
-                <p>That's entirely up to you. Use it to talk to your team, implement recommendations yourself, or reach out if you want help.</p>
+                <p>That's entirely up to you. Use it to talk to your team, implement recommendations yourself, or reach out if you want help. No pressure either way.</p>
             </div>
 
             <div class="faq-card reveal reveal-delay-1">
-                <h3>Do you sell my data?</h3>
-                <p>No. Your audit results are for you only. We don't share, sell, or use your data for anything else.</p>
+                <h3>How accurate is it?</h3>
+                <p>The report is based on what's publicly visible — your website, tech stack, and digital presence. For a free 2-minute audit, the signal is strong. A paid engagement goes deeper.</p>
             </div>
 
             <div class="faq-card reveal reveal-delay-2">
-                <h3>What if I want professional help?</h3>
-                <p>If your report shows significant opportunity, we offer custom AI implementations on retainer. But that's optional — the audit stands alone.</p>
+                <h3>What if the report shows big opportunities?</h3>
+                <p>That's exactly what we hope for. We offer custom AI implementations and managed services starting at $750/mo — the report is how we both figure out if it makes sense.</p>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- Credibility Bar -->
+<section class="credibility-bar">
+    <div class="container reveal">
+        <p>This tool runs on the same AI stack we build for clients.</p>
     </div>
 </section>
 
@@ -1479,7 +1767,7 @@
     <div class="container reveal">
         <p class="overline">Ready to Talk?</p>
         <h2>Already know what<br>you need built?</h2>
-        <p>Let's skip the audit and jump straight into discussing your project.</p>
+        <p>Skip the report. Let's talk directly about your project.</p>
         <a href="https://calendly.com/savinop/free-consult" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">Book a Consultation</a>
     </div>
 </section>
