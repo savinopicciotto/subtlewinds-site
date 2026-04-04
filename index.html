@@ -11,7 +11,19 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://subtlewinds.io">
     <meta property="og:image" content="https://subtlewinds.io/og-image.png">
+    <meta name="robots" content="index, follow">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Agents That Fix Software Gaps — Subtle Winds">
+    <meta name="twitter:description" content="We find the biggest disconnect in your software stack and fix it in 5 days for $3,000. Free gap analysis for construction, dental, and trades businesses.">
     <link rel="canonical" href="https://subtlewinds.io/">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9SF82G03BB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9SF82G03BB');
+    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,6 +53,63 @@
           }
         ]
       }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI Agent Development",
+      "provider": { "@type": "Organization", "name": "Subtle Winds", "url": "https://subtlewinds.io" },
+      "description": "We build AI agents that fix software gaps — automating the manual data entry and disconnected workflows costing mid-market businesses time and money.",
+      "areaServed": "US",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "AI Agent Services",
+        "itemListElement": [
+          { "@type": "Offer", "name": "5-Day Sprint", "description": "1-2 AI agents built to fix your biggest software gap. Delivered in 5 days. Flat $3,000.", "price": "3000", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Full Build", "description": "3-4 connected agents across your full stack.", "price": "5000", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Agent Ops Retainer", "description": "Ongoing monitoring, API management, and model upgrades.", "price": "1250", "priceCurrency": "USD" }
+        ]
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is the gap analysis free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Most businesses make AI decisions blind. We built this so you know exactly where you stand before spending a dollar. No credit card, no catch." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a software gap?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A software gap is any place in your business where two systems that should talk to each other don't — forcing your team to manually copy, re-enter, or reconcile data. Common examples: your CRM and your operations software, your quoting tool and your accounting system, or your scheduling app and your client communication platform." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does the audit take?",
+          "acceptedAnswer": { "@type": "Answer", "text": "About 2 minutes for you (just enter your URL). Our system takes about 2 minutes to analyze and generate your report." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after I get my report?",
+          "acceptedAnswer": { "@type": "Answer", "text": "That's entirely up to you. Use it to talk to your team, implement recommendations yourself, or reach out if you want help. No pressure either way." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost to fix a software gap?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Our 5-Day Sprint starts at $3,000 and delivers 1-2 AI agents to fix your biggest gap. Full builds with 3-4 connected agents start at $5,000. We also offer ongoing Agent Ops retainers at $1,250/month." }
+        },
+        {
+          "@type": "Question",
+          "name": "What if the report shows big opportunities?",
+          "acceptedAnswer": { "@type": "Answer", "text": "That's exactly what we hope for. We offer a 5-day sprint starting at $3,000 to fix your biggest gap fast, and full managed AI systems from $5,000 — the report is how we both figure out which makes sense." }
+        }
+      ]
     }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1333,7 +1402,7 @@
             <li><a href="#how-it-works">How It Works</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#faq">FAQ</a></li>
-            <li><a href="https://calendly.com/subtlewinds/free-consult" target="_blank" class="book-call">Book a Call</a></li>
+            <li><a href="https://calendly.com/subtlewinds/free-consult" target="_blank" rel="noopener noreferrer" class="book-call">Book a Call</a></li>
             <li><a href="#audit-form" class="nav-cta">Get Your Report</a></li>
         </ul>
     </div>
@@ -1434,8 +1503,8 @@
             <div id="result-bottom-line" class="result-bottom-line"></div>
 
             <div class="result-ctas">
-                <a id="result-full-report" href="#" class="btn btn-primary btn-large" target="_blank">View Full Report</a>
-                <a href="https://calendly.com/subtlewinds/free-consult" class="btn btn-large" style="background: var(--charcoal); color: var(--paper);" target="_blank">Book a Free 20-Min Walkthrough</a>
+                <a id="result-full-report" href="#" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">View Full Report</a>
+                <a href="https://calendly.com/subtlewinds/free-consult" class="btn btn-large" style="background: var(--charcoal); color: var(--paper);" target="_blank" rel="noopener noreferrer">Book a Free 20-Min Walkthrough</a>
                 <p class="result-email-note" id="result-email-note"></p>
             </div>
         </div>
@@ -1567,7 +1636,7 @@
                     <li>Works with your existing tools</li>
                     <li>Handoff + documentation included</li>
                 </ul>
-                <a href="https://calendly.com/subtlewinds/free-consult" target="_blank" class="btn btn-primary">Book a Sprint</a>
+                <a href="https://calendly.com/subtlewinds/free-consult" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book a Sprint</a>
             </div>
 
             <div class="service-card reveal reveal-delay-2">
@@ -1580,7 +1649,7 @@
                     <li>Ongoing management from $1,250/mo</li>
                     <li>AI evolves — your system keeps up automatically</li>
                 </ul>
-                <a href="https://calendly.com/subtlewinds/free-consult" target="_blank" class="btn btn-outline">Discuss Your Project</a>
+                <a href="https://calendly.com/subtlewinds/free-consult" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Discuss Your Project</a>
             </div>
         </div>
     </div>
@@ -1599,35 +1668,35 @@
                 <span>Gmail</span>
             </div>
             <div class="integration-item">
-                <img src="/images/integrations/googledrive.svg" alt="Google Drive">
+                <img src="/images/integrations/googledrive.svg" alt="Google Drive" loading="lazy">
                 <span>Google Drive</span>
             </div>
             <div class="integration-item">
-                <img src="/images/integrations/googlecalendar.svg" alt="Google Calendar">
+                <img src="/images/integrations/googlecalendar.svg" alt="Google Calendar" loading="lazy">
                 <span>Calendar</span>
             </div>
             <div class="integration-item">
-                <img src="/images/integrations/googlesheets.svg" alt="Google Sheets">
+                <img src="/images/integrations/googlesheets.svg" alt="Google Sheets" loading="lazy">
                 <span>Sheets</span>
             </div>
             <div class="integration-item">
-                <img src="/images/integrations/slack.svg" alt="Slack">
+                <img src="/images/integrations/slack.svg" alt="Slack" loading="lazy">
                 <span>Slack</span>
             </div>
             <div class="integration-item">
-                <img src="/images/integrations/notion.svg" alt="Notion">
+                <img src="/images/integrations/notion.svg" alt="Notion" loading="lazy">
                 <span>Notion</span>
             </div>
             <div class="integration-item">
-                <img src="/images/integrations/airtable.svg" alt="Airtable">
+                <img src="/images/integrations/airtable.svg" alt="Airtable" loading="lazy">
                 <span>Airtable</span>
             </div>
             <div class="integration-item">
-                <img src="/images/integrations/whatsapp.svg" alt="WhatsApp">
+                <img src="/images/integrations/whatsapp.svg" alt="WhatsApp" loading="lazy">
                 <span>WhatsApp</span>
             </div>
             <div class="integration-item">
-                <img src="/images/integrations/dropbox.svg" alt="Dropbox">
+                <img src="/images/integrations/dropbox.svg" alt="Dropbox" loading="lazy">
                 <span>Dropbox</span>
             </div>
         </div>
@@ -1689,7 +1758,7 @@
         <p class="overline">Ready to Talk?</p>
         <h2>Already know what<br>you need built?</h2>
         <p>Skip the report. Let's talk directly about your project.</p>
-        <a href="https://calendly.com/subtlewinds/free-consult" target="_blank" class="btn btn-primary btn-large">Book a Consultation</a>
+        <a href="https://calendly.com/subtlewinds/free-consult" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">Book a Consultation</a>
     </div>
 </section>
 
