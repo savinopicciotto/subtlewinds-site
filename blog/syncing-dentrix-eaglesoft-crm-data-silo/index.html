@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syncing Dentrix / Eaglesoft with CRM: Fixing the Data Silo — Subtle Winds</title>
+    <meta name="description" content="Dental practices lose 3-5 hours per week manually re-entering patient data between Dentrix or Eaglesoft and their CRM. Here's how to fix it.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Syncing Dentrix / Eaglesoft with CRM: Fixing the Data Silo — Subtle Winds">
+    <meta property="og:description" content="Dental practices lose 3-5 hours per week manually re-entering patient data between Dentrix or Eaglesoft and their CRM. Here's how to fix it.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://subtlewinds.io/blog/syncing-dentrix-eaglesoft-crm-data-silo/">
+    <meta property="og:image" content="https://subtlewinds.io/og-image.png">
+    <meta property="og:site_name" content="Subtle Winds">
+    <link rel="canonical" href="https://subtlewinds.io/blog/syncing-dentrix-eaglesoft-crm-data-silo/">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Syncing Dentrix / Eaglesoft with CRM: Fixing the Data Silo",
+  "description": "Dental practices lose 3-5 hours per week manually re-entering patient data between Dentrix or Eaglesoft and their CRM. Here's how to fix it.",
+  "author": {
+    "@type": "Organization",
+    "name": "Subtle Winds"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Subtle Winds",
+    "url": "https://subtlewinds.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://subtlewinds.io/og-image.png"
+    }
+  },
+  "datePublished": "2026-04-05",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://subtlewinds.io/blog/syncing-dentrix-eaglesoft-crm-data-silo/"
+  }
+}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <style>
+        :root {
+            --paper: #F0EAD6;
+            --paper-dark: #E5DCC6;
+            --charcoal: #1A1A1A;
+            --crimson: #DC143C;
+            --crimson-dark: #B01030;
+            --text-secondary: #4A4A42;
+            --text-muted: #7A7A6E;
+            --border-light: rgba(26,26,26,0.12);
+            --font-display: 'Oswald', 'Impact', sans-serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--paper); color: var(--charcoal); font-family: var(--font-body); line-height: 1.7; }
+
+        /* Nav */
+        .site-nav { background: var(--charcoal); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+        .site-nav a { color: var(--paper); text-decoration: none; font-family: var(--font-display); font-size: 0.85rem; letter-spacing: 0.08em; opacity: 0.8; }
+        .site-nav a:hover { opacity: 1; }
+        .site-nav .brand { font-size: 1rem; font-weight: 600; opacity: 1; letter-spacing: 0.12em; }
+        .nav-links { display: flex; gap: 2rem; }
+
+        /* Article layout */
+        .article-wrap { max-width: 720px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+        .article-meta { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
+        .article-meta a { color: var(--crimson); text-decoration: none; }
+        h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.25rem; text-transform: uppercase; letter-spacing: 0.02em; }
+        .article-intro { font-size: 1.1rem; color: var(--text-secondary); border-left: 3px solid var(--crimson); padding-left: 1rem; margin-bottom: 2.5rem; line-height: 1.65; }
+        h2 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin: 2.5rem 0 0.75rem; }
+        p { color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.97rem; }
+        .article-conclusion { background: var(--paper-dark); border: 1px solid var(--border-light); border-radius: 4px; padding: 1.5rem; margin-top: 2.5rem; }
+        .article-conclusion p { margin-bottom: 0; }
+
+        /* CTA */
+        .article-cta { margin-top: 3rem; padding: 2rem; background: var(--charcoal); color: var(--paper); text-align: center; border-radius: 4px; }
+        .article-cta p { color: rgba(240,234,214,0.75); margin-bottom: 1.25rem; font-size: 0.95rem; }
+        .article-cta a { display: inline-block; background: var(--crimson); color: var(--paper); padding: 0.75rem 2rem; font-family: var(--font-display); font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
+        .article-cta a:hover { background: var(--crimson-dark); }
+        .article-cta .cta-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem; color: var(--paper); }
+
+        /* Breadcrumb */
+        .breadcrumb { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 2rem; }
+        .breadcrumb a { color: var(--text-muted); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--crimson); }
+        .breadcrumb span { margin: 0 0.4rem; }
+
+        @media (max-width: 600px) {
+            .article-wrap { padding: 2rem 1.25rem 4rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <a href="/" class="brand">SUBTLE WINDS</a>
+    <div class="nav-links">
+        <a href="/#services">Services</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/blog/">Blog</a>
+        <a href="https://calendly.com/subtlewinds/free-consult" target="_blank" rel="noopener noreferrer">Book a Call</a>
+    </div>
+</nav>
+
+<article class="article-wrap">
+    <div class="breadcrumb">
+        <a href="/">Home</a><span>›</span>
+        <a href="/blog/">Blog</a><span>›</span>
+        Syncing Dentrix / Eaglesoft with CRM: Fixing the Data Silo
+    </div>
+
+    <p class="article-meta">
+        <a href="/blog/">Subtle Winds Blog</a> &nbsp;·&nbsp; April 05, 2026
+    </p>
+
+    <h1>Syncing Dentrix / Eaglesoft with CRM: Fixing the Data Silo</h1>
+
+    <div class="article-intro">
+        <p>Most dental practices run two disconnected systems: a practice management tool like Dentrix or Eaglesoft, and a CRM or marketing platform for patient communication. When those systems don't talk to each other, front-desk staff manually re-enter appointment data, insurance status, and contact updates — creating errors and eating hours every week.</p>
+    </div>
+
+    
+        <h2>Why Dentrix and Eaglesoft Don't Sync with CRMs by Default</h2>
+        <p>Dentrix and Eaglesoft are built around clinical workflows — scheduling, charting, billing, and insurance. They were not designed to push data to external CRMs like HubSpot, Salesforce, or even simpler patient engagement platforms.</p><p>Both systems store patient records in proprietary local databases. Eaglesoft uses a Firebird database; Dentrix uses a SQL-based structure with a tightly controlled API. Neither exposes a simple webhook or native CRM connector out of the box.</p><p>The result is that any patient record update — a new phone number, a completed treatment, a rescheduled appointment — stays trapped inside the practice management system unless someone manually exports or re-enters it.</p>
+        <h2>The Real Cost of the Data Silo</h2>
+        <p>A front-desk coordinator at a single-location practice typically spends 3-5 hours per week reconciling patient data between systems. At $20/hour, that's $3,000-$5,000 per year in labor for one location — before accounting for the errors that manual entry introduces.</p><p>Duplicate patient records are the most common downstream problem. When a patient updates their phone number in the CRM but not in Dentrix, automated appointment reminders go to the wrong number. No-show rates increase. Recall campaigns hit stale contact lists.</p><p>Practices with multiple locations multiply these problems. A patient seen at Location A may appear as a new lead in the CRM at Location B, triggering redundant intake workflows and creating a fragmented patient history.</p>
+        <h2>How to Build a Working Sync Between Dentrix/Eaglesoft and Your CRM</h2>
+        <p>The most reliable fix is a middleware integration layer that reads from the practice management database on a scheduled interval — typically every 15-60 minutes — and pushes updates to the CRM via API. This approach works without modifying either system.</p><p>Dentrix offers a Customer API (formerly the Dentrix Enterprise API) that licensed developers can access. Eaglesoft data can be accessed through direct database queries if the integration runs on-premise or through Patterson's developer program. Both paths require mapping fields carefully: a "guarantor" in Dentrix is usually the CRM contact record, while individual patients may be linked as associated contacts.</p><p>The minimum viable sync covers four data points: patient name and contact details, appointment date and status, treatment plan stage, and insurance eligibility. Getting those four fields flowing in real time eliminates the majority of manual re-entry work and makes recall and reactivation campaigns accurate enough to be worth running.</p>
+        <h2>What to Expect During Implementation</h2>
+        <p>A scoped integration between Dentrix or Eaglesoft and a standard CRM typically takes 2-4 weeks to build and test, depending on data volume and how many locations are involved. The longest part is usually data mapping and deduplication — cleaning up the backlog of mismatched records before the live sync starts.</p><p>Practices should expect to define a "source of truth" rule before go-live: when the same field exists in both systems, which one wins? For clinical data, the answer is always the practice management system. For marketing preferences and communication history, it's usually the CRM.</p><p>Once the sync is live, front-desk staff stop toggling between systems for basic record updates. Recall lists pull from accurate, current data. And the CRM reflects real appointment history instead of whatever someone last typed in.</p>
+
+    <div class="article-conclusion">
+        <p>Syncing Dentrix or Eaglesoft with a CRM is a solved problem — it requires the right integration layer, clean field mapping, and a clear source-of-truth rule. Subtle Winds builds these integrations for dental practices through a structured 5-Day Sprint, scoping and deploying the sync before the manual workarounds have time to compound into bigger problems.</p>
+    </div>
+
+    <div class="article-cta">
+        <div class="cta-title">Find Your Software Gap</div>
+        <p>Run a free gap analysis on your business — takes 2 minutes.</p>
+        <a href="https://subtlewinds.io/#audit" rel="noopener">Get Your Free Report</a>
+    </div>
+</article>
+
+</body>
+</html>
